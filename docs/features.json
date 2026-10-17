@@ -1,0 +1,680 @@
+[
+ {
+  "id": "F-01",
+  "titulo": "Fundação do projeto",
+  "fase": 2,
+  "area": "infra",
+  "telas": [],
+  "blocos": [],
+  "status": "escrito, não verificado",
+  "aceite": [
+   "Projeto Next.js com TypeScript e Tailwind inicia com npm run dev",
+   "Typecheck, lint e testes passam"
+  ]
+ },
+ {
+  "id": "F-02",
+  "titulo": "Schema do banco e migration inicial",
+  "fase": 2,
+  "area": "banco",
+  "telas": [],
+  "blocos": [],
+  "status": "escrito, não verificado",
+  "aceite": [
+   "prisma generate e prisma migrate dev rodam sem erro",
+   "Valores monetários em centavos inteiros",
+   "Pedido preserva nome e preço do item na compra"
+  ]
+ },
+ {
+  "id": "F-03",
+  "titulo": "Validação de ambiente e travas de produção",
+  "fase": 2,
+  "area": "seguranca",
+  "telas": [],
+  "blocos": [],
+  "status": "concluído",
+  "aceite": [
+   "Provedor simulado é recusado em produção",
+   "Pagar.me sem credenciais é recusado em produção",
+   "APP_URL sem https é recusado em produção"
+  ]
+ },
+ {
+  "id": "F-04",
+  "titulo": "Sessão, papéis e guardas de autorização",
+  "fase": 2,
+  "area": "auth",
+  "telas": [],
+  "blocos": [],
+  "status": "escrito, não verificado",
+  "aceite": [
+   "Cookie httpOnly, secure em produção, sameSite lax",
+   "Rotas de admin exigem papel ADMIN no servidor",
+   "Token de sessão salvo só como hash"
+  ]
+ },
+ {
+  "id": "F-05",
+  "titulo": "Login e criação de conta",
+  "fase": 2,
+  "area": "auth",
+  "telas": [
+   "T08"
+  ],
+  "blocos": [
+   "FORM"
+  ],
+  "status": "login escrito, criação de conta pendente",
+  "aceite": [
+   "Erro de login não revela se o e-mail existe",
+   "Limite de tentativas por IP e por e-mail",
+   "Senha com no mínimo 10 caracteres"
+  ]
+ },
+ {
+  "id": "F-06",
+  "titulo": "Recuperação de senha",
+  "fase": 4,
+  "area": "auth",
+  "telas": [
+   "T08"
+  ],
+  "blocos": [
+   "FORM"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Link de uso único com validade curta",
+   "Token salvo só como hash",
+   "E-mail enviado por interface de e-mail substituível"
+  ]
+ },
+ {
+  "id": "F-07",
+  "titulo": "Script do primeiro administrador",
+  "fase": 2,
+  "area": "auth",
+  "telas": [],
+  "blocos": [],
+  "status": "escrito, não verificado",
+  "aceite": [
+   "Senha pedida no terminal ou por variável temporária",
+   "Nenhuma senha fixa no código ou em arquivo de exemplo",
+   "Criação registrada no log de auditoria"
+  ]
+ },
+ {
+  "id": "F-10",
+  "titulo": "Página inicial",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T01"
+  ],
+  "blocos": [
+   "IMG hero",
+   "LISTA categorias",
+   "LISTA destaques",
+   "LISTA novidades",
+   "TEXTO como funciona",
+   "LISTA perguntas frequentes"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Categorias, destaques e novidades vêm do banco",
+   "Seção sem produtos fica escondida em produção",
+   "Layout usável em celular, tablet e computador"
+  ]
+ },
+ {
+  "id": "F-11",
+  "titulo": "Catálogo com filtros",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T02"
+  ],
+  "blocos": [
+   "LISTA cards",
+   "FORM filtros",
+   "ESTADO vazio"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Filtro por categoria, coleção e faixa etária",
+   "Filtros guardados na URL",
+   "Só produtos publicados aparecem"
+  ]
+ },
+ {
+  "id": "F-12",
+  "titulo": "Página do produto",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T03"
+  ],
+  "blocos": [
+   "IMG capa",
+   "IMG galeria",
+   "LISTA conteúdo incluído",
+   "IMG amostras",
+   "TEXTO licença",
+   "LISTA relacionados"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Dados vêm do banco",
+   "Produto em rascunho dá 404 para visitante",
+   "PDF pago nunca é exposto na página"
+  ]
+ },
+ {
+  "id": "F-13",
+  "titulo": "Carrinho",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T04"
+  ],
+  "blocos": [
+   "LISTA itens",
+   "BTN remover",
+   "ESTADO vazio"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Carrinho guarda só ID e quantidade",
+   "Total recalculado no servidor",
+   "Preço enviado pelo navegador é ignorado"
+  ]
+ },
+ {
+  "id": "F-14",
+  "titulo": "Checkout e criação de pedido",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T05"
+  ],
+  "blocos": [
+   "FORM dados",
+   "LISTA resumo",
+   "BTN pagar"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Pedido criado em transação com itens copiados do catálogo",
+   "Coleta apenas nome, e-mail e aceite dos termos",
+   "Botão travado durante o processamento"
+  ]
+ },
+ {
+  "id": "F-15",
+  "titulo": "SEO e compartilhamento",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T03",
+   "T01",
+   "T02"
+  ],
+  "blocos": [
+   "metadados",
+   "sitemap",
+   "robots"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Título e descrição por produto",
+   "Open Graph com imagem de capa",
+   "sitemap.xml e robots.txt gerados do banco"
+  ]
+ },
+ {
+  "id": "F-16",
+  "titulo": "Tela de Pix pendente",
+  "fase": 5,
+  "area": "pagamento",
+  "telas": [
+   "T06"
+  ],
+  "blocos": [
+   "IMG QR code",
+   "BTN copiar código",
+   "TEXTO contador",
+   "ESTADO expirado"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Tela só lê o estado do pedido no banco",
+   "Atualiza sozinha quando o estado muda",
+   "Pix expirado permite gerar outro"
+  ]
+ },
+ {
+  "id": "F-17",
+  "titulo": "Tela de resultado do pedido",
+  "fase": 5,
+  "area": "pagamento",
+  "telas": [
+   "T07"
+  ],
+  "blocos": [
+   "ESTADO pago",
+   "ESTADO pendente",
+   "ESTADO recusado",
+   "ESTADO expirado"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Quatro estados lidos do banco",
+   "Download só aparece no estado pago",
+   "Chegar na URL de sucesso não libera nada"
+  ]
+ },
+ {
+  "id": "F-18",
+  "titulo": "Área do cliente: pedidos",
+  "fase": 6,
+  "area": "conta",
+  "telas": [
+   "T09",
+   "T10"
+  ],
+  "blocos": [
+   "TABELA pedidos",
+   "LISTA arquivos"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Cliente vê só os próprios pedidos",
+   "Acesso a pedido de outro cliente é negado",
+   "Estado vazio para quem não comprou"
+  ]
+ },
+ {
+  "id": "F-19",
+  "titulo": "Link de produto com compartilhamento e compra direta",
+  "fase": 4,
+  "area": "loja",
+  "telas": [
+   "T03",
+   "T05",
+   "T12"
+  ],
+  "blocos": [
+   "BTN compartilhar",
+   "BTN copiar link",
+   "TEXTO link de compra direta"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Cada produto publicado tem /p/slug e /comprar/slug",
+   "/comprar/slug abre o checkout com o produto já no pedido e o preço vem do banco",
+   "Produto em rascunho ou arquivado não abre nenhum dos dois links",
+   "Botão compartilhar copia o link, abre WhatsApp e usa o menu do aparelho quando existir",
+   "Imagem e título ao compartilhar vêm da capa e do nome do produto (Open Graph)"
+  ]
+ },
+ {
+  "id": "F-20",
+  "titulo": "Gestão de produtos",
+  "fase": 3,
+  "area": "admin",
+  "telas": [
+   "T12",
+   "T13"
+  ],
+  "blocos": [
+   "TABELA",
+   "FORM",
+   "BTN publicar"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Criar, editar, publicar, despublicar e arquivar",
+   "Publicar só habilita com capa, preço e arquivo",
+   "Produto com pedidos não pode ser apagado, só arquivado"
+  ]
+ },
+ {
+  "id": "F-21",
+  "titulo": "Preço e promoção",
+  "fase": 3,
+  "area": "admin",
+  "telas": [
+   "T13"
+  ],
+  "blocos": [
+   "FORM preço"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Entrada em reais, armazenamento em centavos inteiros",
+   "Preço promocional menor que o preço cheio",
+   "Alteração gravada no log de auditoria"
+  ]
+ },
+ {
+  "id": "F-22",
+  "titulo": "Imagens do produto",
+  "fase": 3,
+  "area": "admin",
+  "telas": [
+   "T13"
+  ],
+  "blocos": [
+   "IMG capa",
+   "IMG galeria"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Envio de capa e galeria com legenda e ordem",
+   "Tipo e tamanho da imagem validados",
+   "Imagens públicas separadas dos PDFs pagos"
+  ]
+ },
+ {
+  "id": "F-23",
+  "titulo": "Arquivos digitais e versões",
+  "fase": 3,
+  "area": "admin",
+  "telas": [
+   "T14"
+  ],
+  "blocos": [
+   "FORM envio",
+   "LISTA arquivos"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Só PDF, conferido pelo conteúdo e não pela extensão",
+   "Armazenamento privado, sem URL pública",
+   "Substituir cria versão nova sem quebrar pedidos antigos",
+   "Marcar arquivo como principal ou bônus"
+  ]
+ },
+ {
+  "id": "F-24",
+  "titulo": "Categorias e coleções",
+  "fase": 3,
+  "area": "admin",
+  "telas": [
+   "T15"
+  ],
+  "blocos": [
+   "TABELA",
+   "FORM"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Criar, editar e ordenar",
+   "Categoria com produtos não pode ser apagada",
+   "Slug único"
+  ]
+ },
+ {
+  "id": "F-25",
+  "titulo": "Interface de pagamento e provedor simulado",
+  "fase": 5,
+  "area": "pagamento",
+  "telas": [],
+  "blocos": [],
+  "status": "pendente",
+  "aceite": [
+   "Checkout depende só da interface PaymentProvider",
+   "Provedor simulado impossível de ativar em produção",
+   "Pagamento aprovado, recusado e falha de rede cobertos por testes"
+  ]
+ },
+ {
+  "id": "F-26",
+  "titulo": "Adaptador Pagar.me",
+  "fase": 5,
+  "area": "pagamento",
+  "telas": [],
+  "blocos": [],
+  "status": "pendente",
+  "aceite": [
+   "Implementado a partir da documentação oficial atual",
+   "Chaves só no servidor, por variável de ambiente",
+   "Isolado de catálogo, pedidos e entrega",
+   "Teste real em homologação quando houver credenciais"
+  ]
+ },
+ {
+  "id": "F-27",
+  "titulo": "Webhook e processador de eventos",
+  "fase": 5,
+  "area": "pagamento",
+  "telas": [],
+  "blocos": [],
+  "status": "pendente",
+  "aceite": [
+   "Assinatura validada sobre o corpo bruto",
+   "Evento duplicado não repete efeitos",
+   "Evento inválido é rejeitado e registrado",
+   "Evento fora de ordem não reverte estado final"
+  ]
+ },
+ {
+  "id": "F-28",
+  "titulo": "Máquina de estados e reconciliação",
+  "fase": 5,
+  "area": "pagamento",
+  "telas": [],
+  "blocos": [],
+  "status": "pendente",
+  "aceite": [
+   "Só transições válidas são aplicadas",
+   "Controle de concorrência por versão",
+   "Job consulta o gateway para pagamentos pendentes",
+   "Pedido pendente além do prazo vira expirado"
+  ]
+ },
+ {
+  "id": "F-30",
+  "titulo": "Download protegido com link temporário",
+  "fase": 6,
+  "area": "entrega",
+  "telas": [
+   "T10"
+  ],
+  "blocos": [
+   "BTN baixar",
+   "ESTADO link expirado"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Autorização checada no servidor a cada clique",
+   "Link assinado com validade de poucos minutos",
+   "Limite de downloads configurável",
+   "Pedido não pago nunca gera link"
+  ]
+ },
+ {
+  "id": "F-31",
+  "titulo": "Revogação de acesso em reembolso",
+  "fase": 6,
+  "area": "entrega",
+  "telas": [
+   "T10",
+   "T17"
+  ],
+  "blocos": [
+   "ESTADO reembolsado",
+   "BTN revogar"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Reembolso concluído revoga o acesso por padrão",
+   "Regra configurável até a revisão jurídica",
+   "Reemissão de acesso só depois de validar a compra"
+  ]
+ },
+ {
+  "id": "F-40",
+  "titulo": "Painel de vendas",
+  "fase": 6,
+  "area": "admin",
+  "telas": [
+   "T11"
+  ],
+  "blocos": [
+   "KPI",
+   "GRAF linha faturamento",
+   "GRAF barras mais vendidos",
+   "TABELA últimos pedidos"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Faturamento bruto, reembolsos, taxas e líquido estimado separados",
+   "Nada é chamado de lucro",
+   "Dias sem venda aparecem como zero no gráfico",
+   "Taxa de conversão só quando houver contagem confiável de visitas"
+  ]
+ },
+ {
+  "id": "F-41",
+  "titulo": "Pedidos no painel",
+  "fase": 6,
+  "area": "admin",
+  "telas": [
+   "T16",
+   "T17"
+  ],
+  "blocos": [
+   "TABELA",
+   "LISTA linha do tempo"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Filtro por status e período",
+   "Histórico de mudanças de status com origem",
+   "Busca por e-mail ou número"
+  ]
+ },
+ {
+  "id": "F-42",
+  "titulo": "Ações administrativas em pedidos",
+  "fase": 6,
+  "area": "admin",
+  "telas": [
+   "T17"
+  ],
+  "blocos": [
+   "BTN reemitir",
+   "BTN reembolsar",
+   "confirmação"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Toda ação pede confirmação",
+   "Toda ação grava no log de auditoria na mesma transação",
+   "Só ADMIN executa"
+  ]
+ },
+ {
+  "id": "F-43",
+  "titulo": "Clientes no painel",
+  "fase": 6,
+  "area": "admin",
+  "telas": [
+   "T18"
+  ],
+  "blocos": [
+   "TABELA",
+   "BTN anonimizar"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Mostra só os dados necessários à operação",
+   "Anonimização preserva o registro financeiro",
+   "Atendimento de pedido de privacidade registrado"
+  ]
+ },
+ {
+  "id": "F-44",
+  "titulo": "Registro de auditoria",
+  "fase": 6,
+  "area": "admin",
+  "telas": [
+   "T19"
+  ],
+  "blocos": [
+   "TABELA"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Filtro por ação e período",
+   "Antes e depois sem dados sensíveis"
+  ]
+ },
+ {
+  "id": "F-50",
+  "titulo": "Páginas legais e contato",
+  "fase": 8,
+  "area": "conformidade",
+  "telas": [
+   "T20"
+  ],
+  "blocos": [
+   "TEXTO",
+   "FORM contato"
+  ],
+  "status": "pendente",
+  "aceite": [
+   "Privacidade, termos e condições de compra publicados",
+   "Dados do vendedor e canal de atendimento visíveis",
+   "Textos marcados como pendentes até revisão jurídica"
+  ]
+ },
+ {
+  "id": "F-60",
+  "titulo": "Testes críticos e ponta a ponta",
+  "fase": 7,
+  "area": "qualidade",
+  "telas": [],
+  "blocos": [],
+  "status": "pendente",
+  "aceite": [
+   "Os 16 cenários obrigatórios do prompt mestre automatizados",
+   "Resultados reais documentados",
+   "Nenhuma cobrança real nos testes"
+  ]
+ },
+ {
+  "id": "F-61",
+  "titulo": "Documentação e implantação",
+  "fase": 8,
+  "area": "infra",
+  "telas": [],
+  "blocos": [],
+  "status": "pendente",
+  "aceite": [
+   "README permite outra pessoa instalar e rodar",
+   "Guia de deploy e checklist de produção",
+   "Plano de backup e restauração do banco"
+  ]
+ },
+ {
+  "id": "F-62",
+  "titulo": "Identidade visual aplicada (tokens de cor e tipografia)",
+  "fase": 4,
+  "area": "loja",
+  "telas": [],
+  "blocos": [
+   "tokens",
+   "botões",
+   "card de produto"
+  ],
+  "status": "manual em análise",
+  "aceite": [
+   "Cores e fontes definidas como tokens em um único arquivo",
+   "Paleta aprovada em docs/identidade-visual.html antes da implementação",
+   "Contraste mínimo 4,5 para 1 em texto normal e 3 para 1 em texto grande"
+  ]
+ }
+]

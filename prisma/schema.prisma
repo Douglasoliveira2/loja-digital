@@ -1,0 +1,341 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Role {
+  CUSTOMER
+  ADMIN
+}
+
+enum ProductStatus {
+  DRAFT
+  PUBLISHED
+  ARCHIVED
+}
+
+enum ProductType {
+  EBOOK
+  PDF_PACK
+  ACTIVITY_BOOK
+  EDUCATIONAL_MATERIAL
+  KIT
+  OTHER
+}
+
+enum FileRole {
+  MAIN
+  BONUS
+}
+
+enum OrderStatus {
+  CREATED
+  AWAITING_PAYMENT
+  PAID
+  CANCELED
+  EXPIRED
+  REFUNDED
+}
+
+enum PaymentStatus {
+  CREATED
+  PENDING
+  PROCESSING
+  APPROVED
+  DECLINED
+  EXPIRED
+  REFUND_REQUESTED
+  REFUNDED
+}
+
+enum PaymentMethod {
+  PIX
+  CARD
+}
+
+model User {
+  id              String    @id @default(cuid())
+  email           String    @unique
+  name            String
+  passwordHash    String?
+  role            Role      @default(CUSTOMER)
+  emailVerifiedAt DateTime?
+  anonymizedAt    DateTime?
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  sessions       Session[]
+  orders         Order[]
+  downloadGrants DownloadGrant[]
+  auditLogs      AuditLog[]
+  passwordResets PasswordReset[]
+}
+
+model Session {
+  id         String   @id @default(cuid())
+  userId     String
+  tokenHash  String   @unique
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  lastUsedAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+model PasswordReset {
+  id        String    @id @default(cuid())
+  userId    String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Category {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+}
+
+model Collection {
+  id          String    @id @default(cuid())
+  name        String
+  slug        String    @unique
+  description String?
+  imageUrl    String?
+  sortOrder   Int       @default(0)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  products    Product[]
+}
+
+model Product {
+  id               String        @id @default(cuid())
+  name             String
+  slug             String        @unique
+  shortDescription String
+  description      String
+  coverImageUrl    String?
+  categoryId       String
+  collectionId     String?
+  priceCents       Int
+  promoPriceCents  Int?
+  status           ProductStatus @default(DRAFT)
+  type             ProductType   @default(EBOOK)
+  ageMin           Int?
+  ageMax           Int?
+  licenseText      String?
+  seoTitle         String?
+  seoDescription   String?
+  sortOrder        Int           @default(0)
+  publishedAt      DateTime?
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+
+  category   Category    @relation(fields: [categoryId], references: [id], onDelete: Restrict)
+  collection Collection? @relation(fields: [collectionId], references: [id], onDelete: SetNull)
+  images     ProductImage[]
+  files      ProductFile[]
+  orderItems OrderItem[]
+
+  @@index([status, categoryId, sortOrder])
+  @@index([collectionId])
+}
+
+model ProductImage {
+  id        String  @id @default(cuid())
+  productId String
+  url       String
+  altText   String?
+  sortOrder Int     @default(0)
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@index([productId])
+}
+
+model ProductFile {
+  id        String   @id @default(cuid())
+  productId String
+  name      String
+  role      FileRole @default(MAIN)
+  sortOrder Int      @default(0)
+  createdAt DateTime @default(now())
+
+  product  Product       @relation(fields: [productId], references: [id], onDelete: Restrict)
+  versions FileVersion[]
+
+  @@index([productId])
+}
+
+model FileVersion {
+  id            String   @id @default(cuid())
+  productFileId String
+  version       Int
+  storageKey    String   @unique
+  sizeBytes     Int
+  mimeType      String
+  sha256        String
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now())
+
+  productFile ProductFile    @relation(fields: [productFileId], references: [id], onDelete: Restrict)
+  grants      DownloadGrant[]
+
+  @@unique([productFileId, version])
+  @@index([productFileId, active])
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String
+  buyerEmail    String
+  status        OrderStatus @default(CREATED)
+  currency      String      @default("BRL")
+  totalCents    Int
+  expiresAt     DateTime?
+  paidAt        DateTime?
+  canceledAt    DateTime?
+  refundedAt    DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
+
+  user     User        @relation(fields: [userId], references: [id], onDelete: Restrict)
+  items    OrderItem[]
+  payments Payment[]
+
+  @@index([userId, createdAt])
+  @@index([status, expiresAt])
+}
+
+model OrderItem {
+  id             String @id @default(cuid())
+  orderId        String
+  productId      String
+  productName    String
+  unitPriceCents Int
+  quantity       Int    @default(1)
+
+  order   Order           @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  product Product         @relation(fields: [productId], references: [id], onDelete: Restrict)
+  grants  DownloadGrant[]
+
+  @@index([orderId])
+  @@index([productId])
+}
+
+model Payment {
+  id             String         @id @default(cuid())
+  orderId        String
+  provider       String
+  externalId     String?
+  method         PaymentMethod
+  status         PaymentStatus  @default(CREATED)
+  amountCents    Int
+  idempotencyKey String         @unique
+  displayData    Json?
+  version        Int            @default(0)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+
+  order  Order          @relation(fields: [orderId], references: [id], onDelete: Restrict)
+  events PaymentEvent[]
+
+  @@unique([provider, externalId])
+  @@index([orderId])
+  @@index([status, createdAt])
+}
+
+model PaymentEvent {
+  id              String    @id @default(cuid())
+  paymentId       String?
+  provider        String
+  externalEventId String
+  type            String
+  payload         Json
+  receivedAt      DateTime  @default(now())
+  processedAt     DateTime?
+  result          String?
+
+  payment Payment? @relation(fields: [paymentId], references: [id], onDelete: Restrict)
+
+  @@unique([provider, externalEventId])
+  @@index([paymentId])
+}
+
+model DownloadGrant {
+  id            String    @id @default(cuid())
+  orderItemId   String
+  userId        String
+  fileVersionId String
+  downloadCount Int       @default(0)
+  maxDownloads  Int       @default(10)
+  revokedAt     DateTime?
+  createdAt     DateTime  @default(now())
+
+  orderItem   OrderItem       @relation(fields: [orderItemId], references: [id], onDelete: Restrict)
+  user        User            @relation(fields: [userId], references: [id], onDelete: Restrict)
+  fileVersion FileVersion     @relation(fields: [fileVersionId], references: [id], onDelete: Restrict)
+  tokens      DownloadToken[]
+
+  @@unique([orderItemId, fileVersionId])
+  @@index([userId])
+}
+
+model DownloadToken {
+  id        String    @id @default(cuid())
+  grantId   String
+  tokenHash String    @unique
+  expiresAt DateTime
+  usedAt    DateTime?
+  createdAt DateTime  @default(now())
+
+  grant DownloadGrant @relation(fields: [grantId], references: [id], onDelete: Cascade)
+
+  @@index([grantId])
+}
+
+model AuditLog {
+  id          String   @id @default(cuid())
+  actorUserId String?
+  action      String
+  entity      String
+  entityId    String?
+  before      Json?
+  after       Json?
+  createdAt   DateTime @default(now())
+
+  actor User? @relation(fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([entity, entityId])
+  @@index([actorUserId, createdAt])
+}
+
+model Coupon {
+  id         String    @id @default(cuid())
+  code       String    @unique
+  kind       String
+  value      Int
+  startsAt   DateTime?
+  endsAt     DateTime?
+  maxUses    Int?
+  usedCount  Int       @default(0)
+  active     Boolean   @default(true)
+  createdAt  DateTime  @default(now())
+}
