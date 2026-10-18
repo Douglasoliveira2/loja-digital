@@ -1,4 +1,4 @@
-# Loja de produtos digitais
+# Meu Ebook Digital
 
 Loja própria de e-books e outros produtos digitais. Arquitetura em `docs/ARQUITETURA.md`.
 

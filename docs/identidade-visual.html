@@ -1,38 +1,41 @@
-<title>Identidade Visual da Loja</title>
+<title>Identidade Visual Meu Ebook Digital</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fustat:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700&display=swap">
 <style>
-/* Conceito: manual de uma página só. Cada seção mostra o valor medido na referência e como ele entra na loja.
-   Dois conjuntos de tokens: A (igual à referência, escuro com vermelho) e B (mesma estrutura, superfícies claras). */
+/* Conceito: manual de uma página só. Cores e fontes medidas em kirvano.com, estrutura de página medida em telago.shop.
+   Dois conjuntos de tokens: A (escuro, como a abertura da Kirvano) e B (claro, como as seções de conteúdo da Kirvano). */
 :root {
-  --bg: #000000;
-  --surface: #080808;
-  --card: #1a1919;
-  --line: #2a2931;
-  --accent: #e50914;
-  --accent-ink: #ffffff;
-  --ink: #ffffff;
-  --ink-soft: #a0a0a0;
-  --ok: #21c985;
-  --card-edge: #ff0000;
-  --font-display: "Poppins", system-ui, sans-serif;
-  --font-body: "Poppins", system-ui, sans-serif;
-  --font-alt: "Inter", system-ui, sans-serif;
+  --bg: #111111;
+  --surface: #191919;
+  --card: #202020;
+  --line: #2c2c2c;
+  --accent: #82d8d0;
+  --accent-strong: #5fc9bf;
+  --accent-text: #82d8d0;
+  --accent-ink: #111111;
+  --ink: #f5f5f7;
+  --ink-soft: #8a8a94;
+  --ok: #5fc9bf;
+  --danger: #ff7a7a;
+  --font-display: "Fustat", "Inter Tight", system-ui, sans-serif;
+  --font-body: "Inter Tight", system-ui, sans-serif;
   color-scheme: dark;
 }
 :root[data-palette="b"] {
-  --bg: #fff7f5;
+  --bg: #fcfbf9;
   --surface: #ffffff;
   --card: #ffffff;
-  --line: #f0d9d6;
-  --accent: #e50914;
-  --accent-ink: #ffffff;
-  --ink: #2a1d1f;
-  --ink-soft: #6d5a5d;
-  --ok: #0b7a54;
-  --card-edge: #e50914;
+  --line: #e7e4de;
+  --accent: #82d8d0;
+  --accent-strong: #5fc9bf;
+  --accent-text: #0f6f65;
+  --accent-ink: #111111;
+  --ink: #171717;
+  --ink-soft: #525252;
+  --ok: #0f6f65;
+  --danger: #b42318;
   color-scheme: light;
 }
 
@@ -63,7 +66,7 @@ code, .mono { font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace; 
 
 .intro { padding-block: 56px 40px; display: grid; gap: 16px; }
 .intro h1 { font-size: clamp(30px, 5vw, 44px); line-height: 1.15; font-weight: 700; }
-.intro h1 span { color: var(--accent); }
+.intro h1 span { color: var(--accent-text); }
 .intro p { color: var(--ink-soft); }
 
 section { padding-block: 40px; border-top: 1px solid var(--line); display: grid; gap: 24px; }
@@ -72,7 +75,7 @@ section h2 { font-size: 26px; font-weight: 600; }
 section header p { color: var(--ink-soft); }
 
 .swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
-.sw { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); min-width: 0; }
+.sw { border: 1px solid var(--line); border-radius: 12px; overflow: hidden; background: var(--surface); min-width: 0; }
 .sw .chip { height: 72px; border-bottom: 1px solid var(--line); }
 .sw .meta { padding: 12px 14px; display: grid; gap: 2px; }
 .sw .meta b { font-weight: 600; }
@@ -85,14 +88,14 @@ th { color: var(--ink-soft); font-weight: 500; font-size: 12px; letter-spacing: 
 tr:last-child td { border-bottom: 0; }
 td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pass { color: var(--ok); font-weight: 600; }
-.warn { color: var(--accent); font-weight: 600; }
+.warn { color: var(--danger); font-weight: 600; }
 
 .type-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
 .type-box { border: 1px solid var(--line); border-radius: 10px; padding: 20px; background: var(--surface); display: grid; gap: 8px; min-width: 0; }
 .type-box small { color: var(--ink-soft); }
-.spec-h1 { font-size: 44.8px; font-weight: 700; line-height: 1.1; color: var(--accent); }
-.spec-h2 { font-family: var(--font-alt); font-size: 40px; font-weight: 400; line-height: 1.15; }
-.spec-h3 { font-size: 20px; font-weight: 600; color: var(--accent); }
+.spec-h1 { font-family: var(--font-display); font-size: 44px; font-weight: 500; line-height: 1.1; }
+.spec-h2 { font-family: var(--font-display); font-size: 32px; font-weight: 400; line-height: 1.2; }
+.spec-h3 { font-family: var(--font-display); font-size: 18px; font-weight: 700; }
 .spec-p { color: var(--ink-soft); }
 
 .parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 16px; align-items: start; }
@@ -100,17 +103,17 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .panel h3 { font-size: 14px; font-weight: 500; color: var(--ink-soft); letter-spacing: 0.06em; text-transform: uppercase; }
 .row { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
 
-.btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 10px; padding: 12px 20px; cursor: pointer; border: 1px solid transparent; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+.btn { font: inherit; font-weight: 600; font-size: 15px; border-radius: 6px; padding: 12px 20px; cursor: pointer; border: 1px solid transparent; text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
 .btn-primary { background: var(--accent); color: var(--accent-ink); }
-.btn-ghost { background: var(--card); color: var(--accent); border-color: var(--line); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
 .btn-off { background: var(--card); color: var(--ink-soft); border-color: var(--line); cursor: not-allowed; }
-.search { display: flex; align-items: center; gap: 10px; border: 1px solid var(--accent); border-radius: 10px; padding: 10px 14px; color: var(--ink-soft); font-size: 14px; background: var(--bg); }
+.search { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; color: var(--ink-soft); font-size: 14px; background: var(--bg); }
 .pill { display: inline-block; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; border: 1px solid; }
 .pill.ok { color: var(--ok); border-color: var(--ok); }
 .pill.wait { color: var(--ink-soft); border-color: var(--line); }
-.pill.bad { color: var(--accent); border-color: var(--accent); }
+.pill.bad { color: var(--danger); border-color: var(--danger); }
 
-.product { border: 1px solid var(--card-edge); border-radius: 10px; background: var(--card); overflow: hidden; display: grid; max-width: 280px; }
+.product { border: 1px solid var(--line); border-radius: 12px; background: var(--card); overflow: hidden; display: grid; max-width: 280px; }
 .product .cover { aspect-ratio: 3 / 4; display: grid; place-items: center; text-align: center; padding: 16px; color: var(--ink-soft); font-size: 13px; border-bottom: 1px solid var(--line);
   background: repeating-linear-gradient(135deg, transparent 0 12px, color-mix(in srgb, var(--ink) 6%, transparent) 12px 13px); }
 .product .body { padding: 14px; display: grid; gap: 6px; }
@@ -128,7 +131,7 @@ td.num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 
 .quick { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
 .quick div { border: 1px solid var(--line); border-radius: 10px; padding: 14px; background: var(--card); text-align: center; font-size: 14px; }
-.quick b { display: block; color: var(--accent); font-weight: 600; }
+.quick b { display: block; color: var(--accent-text); font-weight: 600; }
 .quick span { color: var(--ink-soft); font-size: 12px; }
 
 .page-map { display: grid; gap: 10px; }
@@ -150,31 +153,33 @@ ul { margin: 0; padding-left: 20px; }
   <div class="top">
     <span class="tag">Manual de identidade, versão para análise</span>
     <div class="switch" role="group" aria-label="Escolha da paleta">
-      <button type="button" id="pa" aria-pressed="true">A. Igual à referência</button>
-      <button type="button" id="pb" aria-pressed="false">B. Mesma estrutura, fundo claro</button>
+      <button type="button" id="pa" aria-pressed="true">A. Escuro, como a Kirvano</button>
+      <button type="button" id="pb" aria-pressed="false">B. Claro, como as seções da Kirvano</button>
     </div>
   </div>
 
   <div class="intro">
-    <h1>Identidade visual da <span>loja</span></h1>
-    <p>Cores, tipografia, formas e estrutura de página, medidas na página inicial de telago.shop e organizadas como regras para construir a sua loja. O nome e o logotipo abaixo são provisórios. Use o seletor no topo para ver a mesma estrutura em dois conjuntos de cores.</p>
+    <h1>Identidade visual do <span>Meu Ebook Digital</span></h1>
+    <p>Cores, tipografia, formas e estrutura de página, estrutura de página medida em telago.shop, cores e fontes medidas em kirvano.com, organizadas como regras para construir a sua loja. O nome é Meu Ebook Digital. O logotipo ainda não foi desenhado e aparece como espaço reservado. Use o seletor no topo para ver a mesma estrutura em dois conjuntos de cores.</p>
   </div>
 
   <section id="cores">
     <header>
       <h2>Cores</h2>
-      <p>Os valores da paleta A foram lidos do CSS da referência. A paleta B mantém o vermelho e troca as superfícies por tons claros.</p>
+      <p>Os valores foram lidos do CSS de kirvano.com. A paleta A é a da abertura do site, preta com verde-água. A paleta B é a das seções de conteúdo, fundo off-white com os mesmos botões verde-água. O verde-água não aparece como texto no fundo claro porque perde contraste; ali o texto de destaque usa uma versão escura dele.</p>
     </header>
     <div class="swatches">
       <div class="sw"><div class="chip" style="background:var(--bg)"></div><div class="meta"><b>Fundo</b><span class="mono" data-token="--bg"></span><small>Fundo da página</small></div></div>
       <div class="sw"><div class="chip" style="background:var(--surface)"></div><div class="meta"><b>Superfície</b><span class="mono" data-token="--surface"></span><small>Cabeçalho, rodapé, painéis</small></div></div>
       <div class="sw"><div class="chip" style="background:var(--card)"></div><div class="meta"><b>Card</b><span class="mono" data-token="--card"></span><small>Cards de produto e atalhos</small></div></div>
       <div class="sw"><div class="chip" style="background:var(--line)"></div><div class="meta"><b>Linha</b><span class="mono" data-token="--line"></span><small>Bordas finas e divisores</small></div></div>
-      <div class="sw"><div class="chip" style="background:var(--accent)"></div><div class="meta"><b>Destaque</b><span class="mono" data-token="--accent"></span><small>Botão principal, títulos de destaque, preço em foco</small></div></div>
+      <div class="sw"><div class="chip" style="background:var(--accent)"></div><div class="meta"><b>Destaque</b><span class="mono" data-token="--accent"></span><small>Fundo do botão principal. Texto escuro por cima</small></div></div>
       <div class="sw"><div class="chip" style="background:var(--ink)"></div><div class="meta"><b>Texto</b><span class="mono" data-token="--ink"></span><small>Texto principal</small></div></div>
       <div class="sw"><div class="chip" style="background:var(--ink-soft)"></div><div class="meta"><b>Texto secundário</b><span class="mono" data-token="--ink-soft"></span><small>Descrições e legendas</small></div></div>
       <div class="sw"><div class="chip" style="background:var(--ok)"></div><div class="meta"><b>Confirmação</b><span class="mono" data-token="--ok"></span><small>Pix, pago, sucesso</small></div></div>
-      <div class="sw"><div class="chip" style="background:var(--card-edge)"></div><div class="meta"><b>Contorno do card</b><span class="mono" data-token="--card-edge"></span><small>Na referência é vermelho puro de 1px</small></div></div>
+      <div class="sw"><div class="chip" style="background:var(--accent-strong)"></div><div class="meta"><b>Destaque forte</b><span class="mono" data-token="--accent-strong"></span><small>Hover do botão e ícones</small></div></div>
+      <div class="sw"><div class="chip" style="background:var(--accent-text)"></div><div class="meta"><b>Destaque em texto</b><span class="mono" data-token="--accent-text"></span><small>Links e títulos de destaque</small></div></div>
+      <div class="sw"><div class="chip" style="background:var(--danger)"></div><div class="meta"><b>Erro</b><span class="mono" data-token="--danger"></span><small>Pagamento recusado. Não vem da Kirvano, é um vermelho neutro meu.</small></div></div>
     </div>
 
     <div class="table-scroll">
@@ -188,24 +193,24 @@ ul { margin: 0; padding-left: 20px; }
   <section id="tipografia">
     <header>
       <h2>Tipografia</h2>
-      <p>A referência usa Poppins quase em tudo e Inter no título de seção. Para a loja recomendo Poppins em todos os níveis e deixar Inter como segunda opção, o que reduz uma fonte a carregar.</p>
+      <p>A Kirvano usa Fustat nos títulos e Inter Tight no texto. Ambas são do Google Fonts, então carregam sem custo de licença.</p>
     </header>
     <div class="type-grid">
-      <div class="type-box"><span class="spec-h1">Título principal</span><small>Poppins Bold, 44,8px, cor de destaque</small></div>
-      <div class="type-box"><span class="spec-h2">Título de seção</span><small>Inter Regular, 40px, cor do texto (como na referência)</small></div>
-      <div class="type-box"><span class="spec-h3">Título de card</span><small>Poppins SemiBold, 20px, cor de destaque</small></div>
-      <div class="type-box"><span class="spec-p">Texto de apoio com 16px e cor secundária, usado em descrições e instruções.</span><small>Poppins Regular, 16px</small></div>
+      <div class="type-box"><span class="spec-h1">Título principal</span><small>Fustat Medium, 44px (32px no celular), cor do texto</small></div>
+      <div class="type-box"><span class="spec-h2">Título de seção</span><small>Fustat Regular, 32px, cor do texto</small></div>
+      <div class="type-box"><span class="spec-h3">Título de card</span><small>Fustat Bold, 18px, cor do texto</small></div>
+      <div class="type-box"><span class="spec-p">Texto de apoio com 16px e cor secundária, usado em descrições e instruções.</span><small>Inter Tight Regular, 16px (14px em textos longos)</small></div>
     </div>
     <div class="table-scroll">
       <table>
         <thead><tr><th>Uso</th><th>Fonte</th><th>Tamanho</th><th>Peso</th></tr></thead>
         <tbody>
-          <tr><td>Título da página</td><td>Poppins</td><td class="num">44,8px (28px no celular)</td><td class="num">700</td></tr>
-          <tr><td>Título de seção</td><td>Poppins</td><td class="num">32px (24px no celular)</td><td class="num">600</td></tr>
-          <tr><td>Título de card</td><td>Poppins</td><td class="num">20px</td><td class="num">600</td></tr>
-          <tr><td>Preço</td><td>Poppins</td><td class="num">22px</td><td class="num">700</td></tr>
-          <tr><td>Texto</td><td>Poppins</td><td class="num">16px</td><td class="num">400</td></tr>
-          <tr><td>Legenda e selo</td><td>Poppins</td><td class="num">12 a 13px</td><td class="num">500 a 600</td></tr>
+          <tr><td>Título da página</td><td>Fustat</td><td class="num">44px (32px no celular)</td><td class="num">500</td></tr>
+          <tr><td>Título de seção</td><td>Fustat</td><td class="num">32px (26px no celular)</td><td class="num">400</td></tr>
+          <tr><td>Título de card</td><td>Fustat</td><td class="num">18px</td><td class="num">700</td></tr>
+          <tr><td>Preço</td><td>Fustat</td><td class="num">22px</td><td class="num">700</td></tr>
+          <tr><td>Texto</td><td>Inter Tight</td><td class="num">16px</td><td class="num">400</td></tr>
+          <tr><td>Legenda e selo</td><td>Inter Tight</td><td class="num">12 a 13px</td><td class="num">500 a 600</td></tr>
         </tbody>
       </table>
     </div>
@@ -214,7 +219,7 @@ ul { margin: 0; padding-left: 20px; }
   <section id="componentes">
     <header>
       <h2>Formas e componentes</h2>
-      <p>Cantos de 10px, linha de 1px, sem sombra. A referência separa os objetos por contorno e não por elevação.</p>
+      <p>Botões com canto de 6px e campos e cards com 12px, linha de 1px e sem sombra. A Kirvano separa os objetos por contorno e por troca de tom de fundo.</p>
     </header>
     <div class="parts">
       <div class="panel">
@@ -238,7 +243,7 @@ ul { margin: 0; padding-left: 20px; }
           <div><b>Suporte</b><span>Fale com a gente</span></div>
           <div><b>Minha conta</b><span>Seus downloads</span></div>
         </div>
-        <p style="color:var(--ink-soft);font-size:14px">Na referência são quatro atalhos num painel ao lado do título. Aqui os dois últimos trocam Telegram e Afiliados por itens que a loja já terá.</p>
+        <p style="color:var(--ink-soft);font-size:14px">Na estrutura do telago.shop são quatro atalhos num painel ao lado do título. Aqui os dois últimos trocam Telegram e Afiliados por itens que a loja já terá.</p>
       </div>
 
       <div class="panel">
@@ -266,21 +271,21 @@ ul { margin: 0; padding-left: 20px; }
     </header>
     <div class="panel">
       <div class="links">
-        <div class="linkrow"><span class="label">Página do produto</span><code>https://sualoja.com.br/p/animais-fofinhos</code><button type="button" class="btn btn-ghost" data-copy="https://sualoja.com.br/p/animais-fofinhos">Copiar</button></div>
-        <div class="linkrow"><span class="label">Compra direta</span><code>https://sualoja.com.br/comprar/animais-fofinhos</code><button type="button" class="btn btn-ghost" data-copy="https://sualoja.com.br/comprar/animais-fofinhos">Copiar</button></div>
+        <div class="linkrow"><span class="label">Página do produto</span><code>https://seudominio.com.br/p/animais-fofinhos</code><button type="button" class="btn btn-ghost" data-copy="https://seudominio.com.br/p/animais-fofinhos">Copiar</button></div>
+        <div class="linkrow"><span class="label">Compra direta</span><code>https://seudominio.com.br/comprar/animais-fofinhos</code><button type="button" class="btn btn-ghost" data-copy="https://seudominio.com.br/comprar/animais-fofinhos">Copiar</button></div>
       </div>
       <div class="row">
-        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/?text=Veja%20este%20livro%20de%20pintura%3A%20https%3A%2F%2Fsualoja.com.br%2Fp%2Fanimais-fofinhos">Compartilhar no WhatsApp</a>
+        <a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/?text=Veja%20este%20livro%20de%20pintura%3A%20https%3A%2F%2Fseudominio.com.br%2Fp%2Fanimais-fofinhos">Compartilhar no WhatsApp</a>
         <span class="copied" id="copied" role="status"></span>
       </div>
-      <p style="color:var(--ink-soft);font-size:14px">A imagem e o título que aparecem quando o link é compartilhado vêm da capa e do nome do produto. Os endereços acima usam um domínio de exemplo.</p>
+      <p style="color:var(--ink-soft);font-size:14px">A imagem e o título que aparecem quando o link é compartilhado vêm da capa e do nome do produto. O domínio seudominio.com.br é um exemplo, ainda não escolhido.</p>
     </div>
   </section>
 
   <section id="estrutura">
     <header>
       <h2>Estrutura da página inicial</h2>
-      <p>Esta é a ordem das seções que li na referência. Li só a página inicial. Página de produto e checkout ainda não foram analisadas e seguirão o mesmo padrão de cards e botões.</p>
+      <p>Esta é a ordem das seções da página inicial do telago.shop, com as cores da Kirvano. Li só a página inicial de cada um. Página de produto e checkout ainda não foram analisadas e seguirão o mesmo padrão de cards e botões.</p>
     </header>
     <div class="page-map">
       <div class="block"><span class="n">1</span><div><b>Faixa de aviso</b><p>Linha fina no topo com uma frase da marca.</p></div></div>
@@ -331,10 +336,12 @@ ul { margin: 0; padding-left: 20px; }
   var pairs = [
     ['Texto sobre fundo', '--ink', '--bg', 4.5, 'texto normal'],
     ['Texto secundário sobre fundo', '--ink-soft', '--bg', 4.5, 'texto normal'],
-    ['Destaque sobre fundo (títulos e preço)', '--accent', '--bg', 3, 'texto grande'],
-    ['Destaque sobre card (títulos de 20px)', '--accent', '--card', 3, 'texto grande'],
+    ['Destaque em texto sobre fundo', '--accent-text', '--bg', 4.5, 'texto normal'],
+    ['Destaque em texto sobre card', '--accent-text', '--card', 4.5, 'texto normal'],
     ['Texto do botão sobre destaque', '--accent-ink', '--accent', 4.5, 'texto normal'],
-    ['Confirmação sobre card', '--ok', '--card', 4.5, 'texto normal']
+    ['Confirmação sobre card', '--ok', '--card', 4.5, 'texto normal'],
+    ['Erro sobre card', '--danger', '--card', 4.5, 'texto normal'],
+    ['Texto sobre superfície', '--ink', '--surface', 4.5, 'texto normal']
   ];
 
   function render() {

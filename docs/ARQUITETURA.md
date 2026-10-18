@@ -1,4 +1,4 @@
-# Arquitetura da loja de produtos digitais
+# Meu Ebook Digital: arquitetura da loja
 
 Este documento é a Fase 1. Ele define o que será construído e por quê, antes de qualquer código. Decisões marcadas como "a confirmar" dependem de informação que ainda não temos.
 

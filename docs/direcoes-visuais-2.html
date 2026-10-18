@@ -1,0 +1,381 @@
+<title>Segunda Rodada Visual Meu Ebook Digital</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Fredoka:wght@500;600;700&family=Fustat:wght@400;500;700&family=Inter+Tight:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap">
+<style>
+/* Conceito: três prévias novas, cada uma com estrutura e personalidade próprias.
+   D muda o toque (papel, contorno e sombra dura), E muda o fluxo (celular primeiro),
+   F muda o ambiente (verde profundo no lugar do preto). O entorno segue o tema do leitor. */
+:root {
+  --bg: #f1efea;
+  --panel: #ffffff;
+  --line: #ddd9d1;
+  --ink: #171717;
+  --ink-soft: #55524c;
+  --mint: #82d8d0;
+  --mint-text: #0f6f65;
+  --font-display: "Fustat", "Inter Tight", system-ui, sans-serif;
+  --font-body: "Inter Tight", system-ui, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b0b0b; --panel: #151515; --line: #2a2a2a; --ink: #f2f2f2; --ink-soft: #a0a0a0; --mint-text: #82d8d0;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b0b0b; --panel: #151515; --line: #2a2a2a; --ink: #f2f2f2; --ink-soft: #a0a0a0; --mint-text: #82d8d0;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-body); font-size: 16px; line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 80px;
+}
+.wrap { max-width: 1120px; margin-inline: auto; }
+h1, h2, h3 { font-family: var(--font-display); margin: 0; text-wrap: balance; }
+p { margin: 0; max-width: 65ch; }
+:focus-visible { outline: 2px solid var(--mint-text); outline-offset: 2px; }
+
+.intro { padding-block: 56px 32px; display: grid; gap: 14px; }
+.intro h1 { font-size: clamp(28px, 4.5vw, 42px); font-weight: 500; line-height: 1.12; }
+.intro p { color: var(--ink-soft); }
+.rules { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+.rules span { border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; font-size: 13px; color: var(--ink-soft); background: var(--panel); }
+
+.dir { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 32px; padding-block: 40px; border-top: 1px solid var(--line); align-items: start; }
+.dir .info { display: grid; gap: 14px; min-width: 0; }
+.dir .letter { font-family: var(--font-display); font-size: 13px; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-soft); }
+.dir h2 { font-size: 28px; font-weight: 500; line-height: 1.15; }
+.dir .lead { color: var(--ink-soft); }
+.dir ul { margin: 0; padding-left: 18px; display: grid; gap: 6px; color: var(--ink-soft); font-size: 15px; }
+.dir ul b { color: var(--ink); font-weight: 600; }
+.tag { display: inline-block; width: fit-content; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 999px; background: var(--mint); color: #111; }
+.stage { min-width: 0; }
+
+/* ---------- prévia base (A, B, C da rodada 1 usam a mesma lógica) ---------- */
+.mock { container-type: inline-size; border-radius: 12px; overflow: hidden; border: 1px solid var(--line); font-family: var(--font-body); background: var(--m-bg); color: var(--m-ink); }
+.mock * { box-sizing: border-box; }
+.m-bar { background: var(--m-bar-bg); color: var(--m-bar-ink); font-size: 12px; text-align: center; padding: 7px 12px; }
+.m-head { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; padding: 14px 20px; background: var(--m-head-bg); color: var(--m-head-ink); border-bottom: 1px solid var(--m-head-line); }
+.m-logo { display: inline-flex; align-items: center; gap: 8px; font-family: var(--m-display, var(--font-display)); font-weight: 700; font-size: 17px; }
+.m-logo i { width: 22px; height: 22px; border-radius: 7px; background: var(--m-accent); display: inline-block; }
+.m-search { flex: 1 1 160px; min-width: 120px; border: 1px solid var(--m-head-line); border-radius: var(--m-r-field); padding: 8px 12px; font-size: 13px; color: var(--m-head-soft); background: var(--m-search-bg); }
+.m-links { display: flex; gap: 8px; align-items: center; font-size: 13px; }
+.m-btn { display: inline-flex; align-items: center; justify-content: center; font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: var(--m-r-btn); border: 1px solid transparent; white-space: nowrap; }
+.m-btn.primary { background: var(--m-accent); color: #111; }
+.m-btn.ghost { border-color: var(--m-btn-line); color: inherit; background: transparent; }
+.m-btn.sm { padding: 7px 12px; font-size: 13px; }
+
+.m-hero { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); gap: 20px; padding: 28px 20px; align-items: center; background: var(--m-hero-bg); color: var(--m-hero-ink); }
+.m-hero h3 { font-family: var(--m-display, var(--font-display)); font-size: clamp(24px, 6cqi, 38px); font-weight: 500; line-height: 1.1; }
+.m-hero p { color: var(--m-hero-soft); font-size: 14px; margin-top: 10px; }
+.m-hero .row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.m-quick { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; padding: 12px; border-radius: var(--m-r-card); background: var(--m-quick-bg); border: 1px solid var(--m-quick-line); }
+.m-quick div { border: 1px solid var(--m-quick-line); border-radius: var(--m-r-field); padding: 10px; text-align: center; font-size: 12px; background: var(--m-quick-item); color: var(--m-hero-soft); }
+.m-quick b { display: block; font-size: 13px; color: var(--m-quick-title); font-weight: 600; }
+
+.m-shelf { padding: 24px 20px 28px; background: var(--m-shelf-bg); color: var(--m-shelf-ink); }
+.m-shelf h4 { font-family: var(--m-display, var(--font-display)); font-size: 20px; font-weight: 500; margin: 0 0 14px; }
+.m-cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 190px)); gap: 14px; }
+.m-card { border: 1px solid var(--m-card-line); border-radius: var(--m-r-card); background: var(--m-card-bg); overflow: hidden; display: grid; }
+.m-cover { aspect-ratio: 3 / 4; display: grid; place-items: center; text-align: center; padding: 10px; font-size: 11px; color: var(--m-shelf-soft); border-bottom: 1px solid var(--m-card-line);
+  background: repeating-linear-gradient(135deg, transparent 0 11px, color-mix(in srgb, var(--m-shelf-ink) 7%, transparent) 11px 12px); }
+.m-card .b { padding: 10px 12px 12px; display: grid; gap: 4px; }
+.m-card .n { font-weight: 600; font-size: 13px; line-height: 1.25; }
+.m-card .p { font-family: var(--m-display, var(--font-display)); font-weight: 700; font-size: 18px; color: var(--m-price, inherit); }
+.m-card .px { font-size: 12px; color: var(--m-pix); }
+.m-card .m-btn { margin-top: 6px; }
+.m-card.empty { border-style: dashed; background: transparent; }
+.m-card.empty .m-cover { border-bottom: 0; aspect-ratio: auto; min-height: 100%; }
+
+@container (max-width: 560px) { .m-hero { grid-template-columns: 1fr; } }
+
+/* ---------- D: caderno de atividades ---------- */
+.d-d {
+  --m-display: "Fredoka", "Fustat", system-ui, sans-serif;
+  --m-bg: #fff8ec; --m-ink: #1f2a29; --m-accent: #82d8d0;
+  --m-bar-bg: #ffd66b; --m-bar-ink: #1f2a29;
+  --m-head-bg: #fff8ec; --m-head-ink: #1f2a29; --m-head-soft: #5d6b69; --m-head-line: #1f2a29; --m-search-bg: #ffffff;
+  --m-hero-bg: #fff8ec; --m-hero-ink: #1f2a29; --m-hero-soft: #4a5957;
+  --m-quick-bg: transparent; --m-quick-line: #1f2a29; --m-quick-item: #ffffff; --m-quick-title: #0f6f65;
+  --m-shelf-bg: #fff8ec; --m-shelf-ink: #1f2a29; --m-shelf-soft: #5d6b69;
+  --m-card-bg: #ffffff; --m-card-line: #1f2a29; --m-pix: #0f6f65; --m-btn-line: #1f2a29;
+  --m-r-btn: 14px; --m-r-field: 14px; --m-r-card: 18px;
+  font-family: "Nunito", var(--font-body); border: 2px solid #1f2a29;
+}
+.d-d .m-btn { border: 2px solid #1f2a29; box-shadow: 3px 3px 0 #1f2a29; font-family: "Nunito", sans-serif; font-weight: 700; }
+.d-d .m-btn.primary { color: #1f2a29; }
+.d-d .m-btn.ghost { background: #fff; color: #1f2a29; }
+.d-d .m-links > span:first-child { font-weight: 700; }
+.d-d .m-head { border-bottom-width: 2px; }
+.d-d .m-search { border-width: 2px; }
+.d-d .m-quick { border: 0; padding: 0; gap: 10px; }
+.d-d .m-quick div { border-width: 2px; box-shadow: 3px 3px 0 #1f2a29; }
+.d-d .m-quick div:nth-child(1) { background: #cdeee9; }
+.d-d .m-quick div:nth-child(2) { background: #ffe9a8; }
+.d-d .m-quick div:nth-child(3) { background: #ffd0c4; }
+.d-d .m-quick div:nth-child(4) { background: #d4e4ff; }
+.d-d .m-quick b { color: #1f2a29; font-size: 14px; }
+.d-d .m-quick div { color: #3d4b49; }
+.d-d .m-card { border-width: 2px; box-shadow: 4px 4px 0 #1f2a29; }
+.d-d .m-cover { border-bottom-width: 2px; background: #cdeee9; }
+.d-d .m-card.empty { box-shadow: none; border-style: dashed; background: transparent; }
+.d-d .m-card.empty .m-cover { background: transparent; }
+.d-d .m-hero h3 { font-weight: 600; }
+.d-d .m-hero h3 mark { background: linear-gradient(transparent 60%, #82d8d0 60%); color: inherit; padding: 0 2px; }
+
+/* ---------- F: verde profundo ---------- */
+.d-f {
+  --m-display: "Bricolage Grotesque", "Fustat", system-ui, sans-serif;
+  --m-bg: #0c2b27; --m-ink: #eef7f5; --m-accent: #82d8d0; --m-price: #ffd66b;
+  --m-bar-bg: #082320; --m-bar-ink: #a9d3cd;
+  --m-head-bg: #0c2b27; --m-head-ink: #eef7f5; --m-head-soft: #9fc4bf; --m-head-line: #1d4640; --m-search-bg: #0f3530;
+  --m-hero-bg: radial-gradient(120% 140% at 85% 0%, rgba(130,216,208,.30), rgba(12,43,39,0) 60%), #0c2b27; --m-hero-ink: #eef7f5; --m-hero-soft: #b4d6d1;
+  --m-quick-bg: rgba(255,255,255,.05); --m-quick-line: #2a5851; --m-quick-item: rgba(255,255,255,.06); --m-quick-title: #82d8d0;
+  --m-shelf-bg: #0c2b27; --m-shelf-ink: #eef7f5; --m-shelf-soft: #9fc4bf;
+  --m-card-bg: #123a35; --m-card-line: #2a5851; --m-pix: #82d8d0; --m-btn-line: #3a6c65;
+  --m-r-btn: 999px; --m-r-field: 999px; --m-r-card: 22px;
+}
+.d-f .m-quick { border-radius: 22px; }
+.d-f .m-quick div { border-radius: 16px; }
+.d-f .m-hero h3 { font-weight: 700; letter-spacing: -.01em; }
+.d-f .m-cover { background: color-mix(in srgb, #82d8d0 10%, transparent); }
+
+/* ---------- E: celular primeiro ---------- */
+.phones { display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+.phone {
+  --p-bg: #ffffff; --p-ink: #171717; --p-soft: #5c5c5c; --p-line: #e6e6e6; --p-mint: #82d8d0; --p-mint-deep: #0f6f65; --p-tint: #eefaf8;
+  width: 300px; max-width: 100%; border: 8px solid #1b1b1b; border-radius: 34px; background: var(--p-bg); color: var(--p-ink);
+  overflow: hidden; position: relative; font-family: var(--font-body); font-size: 13px; line-height: 1.4;
+}
+.phone * { box-sizing: border-box; }
+.phone .cap { font-size: 11px; color: var(--p-soft); text-transform: uppercase; letter-spacing: .08em; }
+.p-top { display: flex; align-items: center; justify-content: space-between; padding: 14px 14px 10px; border-bottom: 1px solid var(--p-line); }
+.p-top .m-logo { font-size: 15px; }
+.p-top .m-logo i { width: 18px; height: 18px; border-radius: 6px; }
+.p-body { padding: 14px; display: grid; gap: 12px; }
+.p-body h3 { font-size: 22px; font-weight: 600; line-height: 1.12; }
+.p-cover { aspect-ratio: 4 / 3; border-radius: 14px; background: var(--p-tint); border: 1px solid var(--p-line); display: grid; place-items: center; text-align: center; font-size: 11px; color: var(--p-soft); padding: 8px;
+  background-image: repeating-linear-gradient(135deg, transparent 0 11px, rgba(15,111,101,.08) 11px 12px); }
+.p-price { display: flex; align-items: baseline; gap: 8px; }
+.p-price b { font-family: var(--font-display); font-size: 26px; font-weight: 700; }
+.p-price span { color: var(--p-mint-deep); font-weight: 600; font-size: 12px; }
+.p-list { margin: 0; padding: 0; list-style: none; display: grid; gap: 6px; }
+.p-list li { display: flex; gap: 8px; align-items: baseline; }
+.p-list li::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--p-mint-deep); flex: none; transform: translateY(-1px); }
+.p-btn { display: flex; align-items: center; justify-content: center; border-radius: 10px; padding: 13px 14px; font-weight: 700; font-size: 15px; background: var(--p-mint); color: #111; }
+.p-btn.line { background: transparent; border: 1px solid var(--p-line); color: var(--p-ink); font-weight: 600; font-size: 13px; padding: 10px; }
+.p-sticky { position: sticky; bottom: 0; padding: 10px 14px 14px; background: var(--p-bg); border-top: 1px solid var(--p-line); display: grid; gap: 6px; }
+.p-sticky small { text-align: center; color: var(--p-soft); font-size: 11px; }
+.p-share { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.p-trust { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 6px; text-align: center; font-size: 11px; color: var(--p-soft); }
+.p-trust span { border: 1px solid var(--p-line); border-radius: 10px; padding: 7px 4px; background: var(--p-tint); }
+.phone-note { max-width: 300px; display: grid; gap: 4px; }
+.phone-note b { font-family: var(--font-display); font-weight: 500; font-size: 15px; }
+.phone-note span { color: var(--ink-soft); font-size: 14px; }
+.e-wide { margin-top: 24px; }
+.e-wide .cap { font-size: 12px; color: var(--ink-soft); margin-bottom: 8px; }
+
+/* ---------- comparação ---------- */
+.compare { padding-block: 40px 0; border-top: 1px solid var(--line); display: grid; gap: 20px; }
+.compare h2 { font-size: 26px; font-weight: 500; }
+.scroll { overflow-x: auto; border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+table { border-collapse: collapse; width: 100%; min-width: 640px; font-size: 14px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--ink-soft); font-weight: 500; }
+tr:last-child td { border-bottom: 0; }
+td:first-child { color: var(--ink-soft); white-space: nowrap; }
+.reco { border: 1px solid var(--line); border-radius: 12px; padding: 20px; background: var(--panel); display: grid; gap: 8px; }
+.reco h3 { font-size: 20px; font-weight: 500; }
+.reco p { color: var(--ink-soft); }
+.after { color: var(--ink-soft); font-size: 15px; }
+
+@media (max-width: 860px) { .dir { grid-template-columns: 1fr; gap: 20px; } }
+</style>
+
+<div class="wrap">
+  <div class="intro">
+    <h1>Segunda rodada de direções para o Meu Ebook Digital</h1>
+    <p>As três primeiras só variavam entre claro e escuro. Estas três mudam outras coisas: o toque dos elementos (D), o caminho de quem chega pelo celular (E) e o ambiente de cor (F). Todas mantêm o verde-água da Kirvano como cor dos botões. As capas aparecem como espaço reservado, porque as ilustrações ainda não existem.</p>
+    <div class="rules">
+      <span>Verde-água #82D8D0 nos botões</span>
+      <span>Um produto real, o resto é espaço reservado</span>
+      <span>Preço e Pix sempre à vista</span>
+      <span>Cada direção tem fonte própria nos títulos</span>
+    </div>
+  </div>
+
+  <!-- D -->
+  <section class="dir" id="d">
+    <div class="info">
+      <span class="letter">Direção D</span>
+      <h2>Caderno de atividades</h2>
+      <p class="lead">Fundo cor de papel, contorno escuro de 2px e sombra dura atrás de botões e cards, como figurinhas coladas. Os quatro atalhos ganham uma cor de giz cada um.</p>
+      <ul>
+        <li><b>Funciona porque</b> o próprio visual já diz "livro de pintura", e a loja se diferencia das plataformas de curso sem perder a hierarquia: o botão verde-água com contorno continua sendo o ponto mais forte.</li>
+        <li><b>Custo:</b> é mais marcante, então logo e capas precisam combinar com esse traço. Em catálogo grande pode ficar pesado.</li>
+        <li><b>Fontes:</b> Fredoka nos títulos, Nunito no texto.</li>
+        <li><b>Cantos:</b> 14px nos botões, 18px nos cards.</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="mock d-d" role="img" aria-label="Prévia da direção D, fundo cor de papel com contornos e sombras duras">
+        <div class="m-bar">Pague com Pix e receba na hora</div>
+        <div class="m-head">
+          <span class="m-logo"><i></i>Meu Ebook Digital</span>
+          <span class="m-search">Pesquisar produto</span>
+          <span class="m-links"><span>Carrinho</span><span class="m-btn primary sm">Entrar</span></span>
+        </div>
+        <div class="m-hero">
+          <div>
+            <h3>Livros de <mark>pintura</mark> para imprimir</h3>
+            <p>PDFs com desenhos originais para crianças de 3 a 5 anos. Compra única, sem assinatura.</p>
+            <div class="row"><span class="m-btn primary">Ver os livros</span><span class="m-btn ghost">Falar com o suporte</span></div>
+          </div>
+          <div class="m-quick">
+            <div><b>Ver livros</b>Explore o catálogo</div>
+            <div><b>Meus pedidos</b>Acompanhe compras</div>
+            <div><b>Suporte</b>Fale com a gente</div>
+            <div><b>Minha conta</b>Seus downloads</div>
+          </div>
+        </div>
+        <div class="m-shelf">
+          <h4>Em destaque</h4>
+          <div class="m-cards">
+            <div class="m-card"><div class="m-cover">Capa (ilustração original)</div><div class="b"><span class="n">Animais Fofinhos, Meu Primeiro Livro de Pintura</span><span class="p">R$ 9,90</span><span class="px">À vista no Pix</span><span class="m-btn primary sm">Comprar</span></div></div>
+            <div class="m-card empty"><div class="m-cover">Próximo lançamento (exemplo)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- E -->
+  <section class="dir" id="e">
+    <div class="info">
+      <span class="letter">Direção E</span>
+      <h2>Celular primeiro</h2>
+      <p class="lead">Quem compra um livro de R$ 9,90 quase sempre chegou por um link no WhatsApp ou numa rede social, no celular. Aqui o desenho parte da tela de 360px e a página do produto vira o centro da loja.</p>
+      <ul>
+        <li><b>Funciona porque</b> o link /comprar/animais-fofinhos abre direto no produto, com preço, o que vem no PDF e um botão fixo de compra sempre visível no polegar.</li>
+        <li><b>Custo:</b> a home no desktop fica mais enxuta que a do telago.shop. Mantenho a estrutura dele (barra, busca, carrossel, grade) a partir de 768px, mas no celular ela some a favor do produto.</li>
+        <li><b>Fontes:</b> Fustat nos títulos, Inter Tight no texto, as mesmas da identidade atual.</li>
+        <li><b>Cantos:</b> 10px nos botões.</li>
+      </ul>
+      <span class="tag">Minha recomendação como base</span>
+    </div>
+    <div class="stage">
+      <div class="phones">
+        <div style="display:grid;gap:10px">
+          <div class="phone" role="img" aria-label="Prévia da direção E, página inicial no celular">
+            <div class="p-top"><span class="m-logo"><i style="background:#82d8d0"></i>Meu Ebook Digital</span><span>Carrinho</span></div>
+            <div class="p-body">
+              <span class="cap">Pague com Pix e receba na hora</span>
+              <h3>Livros de pintura para imprimir</h3>
+              <div class="p-cover">Capa (ilustração original)</div>
+              <div>
+                <div style="font-weight:600">Animais Fofinhos, Meu Primeiro Livro de Pintura</div>
+                <div class="p-price"><b>R$ 9,90</b><span>À vista no Pix</span></div>
+              </div>
+              <div class="p-trust"><span>Entrega na hora</span><span>Compra única</span><span>Suporte</span></div>
+            </div>
+            <div class="p-sticky"><span class="p-btn">Comprar por R$ 9,90</span><small>Pagamento seguro</small></div>
+          </div>
+          <div class="phone-note"><b>Home no celular</b><span>Um produto em destaque, sem carrossel. Com mais produtos, vira lista vertical.</span></div>
+        </div>
+        <div style="display:grid;gap:10px">
+          <div class="phone" role="img" aria-label="Prévia da direção E, página de compra direta no celular">
+            <div class="p-top"><span class="m-logo"><i style="background:#82d8d0"></i>Meu Ebook Digital</span><span>Carrinho</span></div>
+            <div class="p-body">
+              <div class="p-cover">Capa (ilustração original)</div>
+              <h3>Animais Fofinhos, Meu Primeiro Livro de Pintura</h3>
+              <div class="p-price"><b>R$ 9,90</b><span>À vista no Pix</span></div>
+              <ul class="p-list">
+                <li>20 desenhos para pintar</li>
+                <li>5 atividades bônus</li>
+                <li>Para crianças de 3 a 5 anos</li>
+                <li>PDF para imprimir em A4</li>
+              </ul>
+              <div class="p-share"><span class="p-btn line">Copiar link</span><span class="p-btn line">WhatsApp</span></div>
+            </div>
+            <div class="p-sticky"><span class="p-btn">Comprar agora</span><small>Você recebe o link do PDF por e-mail</small></div>
+          </div>
+          <div class="phone-note"><b>Link de compra direta</b><span>Esta tela é a /comprar/slug. O botão fixo leva ao checkout com o produto já escolhido.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- F -->
+  <section class="dir" id="f">
+    <div class="info">
+      <span class="letter">Direção F</span>
+      <h2>Verde profundo</h2>
+      <p class="lead">Troca o preto da Kirvano por um verde-petróleo escuro, com brilho do verde-água no topo e preço em amarelo. Botões em pílula e cards de cantos bem redondos.</p>
+      <ul>
+        <li><b>Funciona porque</b> mantém o ar de plataforma da Kirvano, mas tem cara de marca própria e é menos fria que o preto puro. O amarelo no preço é o segundo ponto de atenção da página.</li>
+        <li><b>Custo:</b> continua sendo tema escuro, então o risco de parecer sério para pais de crianças pequenas diminui, mas não some. Capas coloridas ficam melhor que no preto.</li>
+        <li><b>Fontes:</b> Bricolage Grotesque nos títulos, Inter Tight no texto.</li>
+        <li><b>Cantos:</b> botões em pílula, 22px nos cards.</li>
+      </ul>
+    </div>
+    <div class="stage">
+      <div class="mock d-f" role="img" aria-label="Prévia da direção F, página inicial em verde profundo">
+        <div class="m-bar">Pague com Pix e receba na hora</div>
+        <div class="m-head">
+          <span class="m-logo"><i></i>Meu Ebook Digital</span>
+          <span class="m-search">Pesquisar produto</span>
+          <span class="m-links"><span>Carrinho</span><span class="m-btn primary sm">Entrar</span></span>
+        </div>
+        <div class="m-hero">
+          <div>
+            <h3>Livros de pintura para imprimir</h3>
+            <p>PDFs com desenhos originais para crianças de 3 a 5 anos. Compra única, sem assinatura.</p>
+            <div class="row"><span class="m-btn primary">Ver os livros</span><span class="m-btn ghost">Falar com o suporte</span></div>
+          </div>
+          <div class="m-quick">
+            <div><b>Ver livros</b>Explore o catálogo</div>
+            <div><b>Meus pedidos</b>Acompanhe compras</div>
+            <div><b>Suporte</b>Fale com a gente</div>
+            <div><b>Minha conta</b>Seus downloads</div>
+          </div>
+        </div>
+        <div class="m-shelf">
+          <h4>Em destaque</h4>
+          <div class="m-cards">
+            <div class="m-card"><div class="m-cover">Capa (ilustração original)</div><div class="b"><span class="n">Animais Fofinhos, Meu Primeiro Livro de Pintura</span><span class="p">R$ 9,90</span><span class="px">À vista no Pix</span><span class="m-btn primary sm">Comprar</span></div></div>
+            <div class="m-card empty"><div class="m-cover">Próximo lançamento (exemplo)</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare">
+    <h2>Lado a lado</h2>
+    <div class="scroll">
+      <table>
+        <thead><tr><th></th><th>D. Caderno de atividades</th><th>E. Celular primeiro</th><th>F. Verde profundo</th></tr></thead>
+        <tbody>
+          <tr><td>O que muda</td><td>O toque: contorno, sombra dura, cores de giz</td><td>O fluxo: produto no centro, botão fixo</td><td>O ambiente: verde escuro no lugar do preto</td></tr>
+          <tr><td>Fundo</td><td>Papel #FFF8EC</td><td>Branco</td><td>Verde-petróleo #0C2B27</td></tr>
+          <tr><td>Botão principal</td><td>Verde-água com contorno, 14px</td><td>Verde-água, 10px, largura total</td><td>Verde-água em pílula</td></tr>
+          <tr><td>Sensação</td><td>Livro de atividades</td><td>Loja rápida de bolso</td><td>Plataforma com marca própria</td></tr>
+          <tr><td>Risco principal</td><td>Pesado com muitos produtos</td><td>Desktop menos vistoso</td><td>Ainda é tema escuro</td></tr>
+          <tr><td>Esforço nas telas internas</td><td>Contorno e sombra em todo formulário</td><td>Mínimo, o estilo é neutro</td><td>Carrinho e checkout precisam de versão clara</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="reco">
+      <h3>Minha posição: E como estrutura, D como personalidade</h3>
+      <p>O seu produto custa R$ 9,90 e será divulgado por link. Esse tipo de compra acontece no celular, em poucos segundos, e se perde se o botão não estiver à vista. Por isso E decide o desenho das telas: produto no centro, botão fixo, Pix explícito. Sobre ela, eu aplicaria o papel, o contorno e as cores de giz de D, mas só em capas, selos e atalhos, deixando formulários e checkout limpos para ler. F é a que eu descartaria: ela resolve o problema do preto, mas as direções C e D resolvem melhor.</p>
+    </div>
+    <p class="after">Se você aprovar essa combinação, eu aplico os tokens no projeto (feature F-62) e construo a home e a página /comprar/slug (F-10 e F-19).</p>
+  </section>
+</div>

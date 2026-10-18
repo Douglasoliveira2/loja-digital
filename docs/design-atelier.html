@@ -1,0 +1,199 @@
+<title>Atelier Meu Ebook Digital</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap">
+<style>
+:root{color-scheme:light;
+--bg:#f6f8f7;--surface:#ffffff;--field:#ffffff;--tint:#e9f6f3;--stage:#eef3f1;--ink:#101a18;--soft:#55625f;--line:#e2e8e6;--line-strong:#c5d0cd;
+--mint:#82d8d0;--deep:#0b6a60;--cta:#0e3d37;--cta-ink:#ffffff;--head-bg:rgba(246,248,247,.92);
+--f-disp:"Sora",system-ui,sans-serif;--f-body:"Inter Tight",system-ui,sans-serif;
+--r-btn:12px;--r-pill:999px;--r-card:20px;--r-big:28px;--mk-r:9px;--h2w:600;
+--sh-md:0 14px 30px -14px rgba(16,40,36,.22);--sh-lg:0 24px 48px -16px rgba(16,40,36,.28);--sh-btn:0 10px 20px -8px rgba(14,61,55,.5);
+--cov-sh:0 18px 30px -14px rgba(16,40,36,.45),0 2px 4px rgba(16,40,36,.12);--cov-sh-hover:0 28px 40px -16px rgba(16,40,36,.5),0 2px 4px rgba(16,40,36,.14);
+--feat-bg:#ffffff;--feat-line:#e2e8e6;--foot-bg:#0e1f1c;--foot-ink:#f2f7f6;--foot-soft:#93a8a4;--foot-line:#243b36}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--head-bg)}
+h1,h2,h3{font-family:var(--f-disp);margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--deep);outline-offset:3px}
+.ic{flex:none}
+.in{max-width:1180px;margin-inline:auto}
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--head-bg);border-bottom:1px solid var(--line);margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.top .in{display:flex;align-items:center;gap:20px;min-height:68px}
+.logo{display:inline-flex;align-items:center;gap:10px;font:700 18px/1 var(--f-disp);letter-spacing:-.01em;white-space:nowrap}
+.mk{width:26px;height:26px;border-radius:var(--mk-r,8px);background:var(--mint);position:relative;flex:none}
+.mk::after{content:"";position:absolute;inset:6px 6px 6px 8px;border:2px solid var(--deep);border-radius:2px 5px 5px 2px;border-left-width:4px}
+.nav{display:flex;gap:24px;margin-left:12px;font-weight:500;font-size:15px;color:var(--soft)}
+.nav a{padding:6px 0;border-bottom:2px solid transparent;transition:color .2s,border-color .2s}
+.nav a:hover{color:var(--ink);border-color:var(--mint)}
+.search{margin-left:auto;display:flex;align-items:center;gap:8px;background:var(--field);border:1px solid var(--line);border-radius:var(--r-pill);padding:0 14px;height:42px;width:min(280px,32vw);color:var(--soft);transition:border-color .2s,box-shadow .2s}
+.search:focus-within{border-color:var(--deep);box-shadow:0 0 0 3px color-mix(in srgb,var(--mint) 45%,transparent)}
+.search input{border:0;background:transparent;font:inherit;font-size:14px;color:var(--ink);width:100%;outline:none}
+.cart{width:42px;height:42px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--line);background:var(--field);transition:background .2s,transform .2s}
+.cart:hover{background:var(--mint);transform:translateY(-1px)}
+.menu{display:none;position:relative}
+.menu summary{list-style:none;width:42px;height:42px;display:grid;place-items:center;cursor:pointer;border-radius:50%}
+.menu summary::-webkit-details-marker{display:none}
+.sheet{position:absolute;right:0;top:52px;min-width:220px;background:var(--surface);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-lg);padding:8px;display:grid}
+.sheet a{padding:12px 14px;border-radius:10px;font-weight:500}
+.sheet a:hover{background:var(--tint)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;padding:0 24px;border-radius:var(--r-btn);background:var(--cta);color:var(--cta-ink);font:600 15px/1 var(--f-body);border:1px solid var(--cta-line,transparent);transition:transform .2s,box-shadow .2s,background .2s;cursor:pointer}
+.btn:hover{transform:translateY(-2px);box-shadow:var(--sh-btn)}
+.btn .ic{transition:transform .2s}
+.btn:hover .ic{transform:translateX(4px)}
+.btn.sm{min-height:38px;padding:0 16px;font-size:14px}
+.btn.alt{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.btn.alt:hover{background:var(--tint);box-shadow:none}
+.sec{padding-block:clamp(56px,8vw,104px)}
+.sh{display:flex;align-items:end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:clamp(24px,3vw,40px)}
+.sh h2{font-size:clamp(28px,4vw,44px);line-height:1.08;font-weight:var(--h2w,700);letter-spacing:-.02em}
+.sh>div{display:grid;gap:12px;justify-items:start}
+.sh p{color:var(--soft);max-width:46ch}
+.lnk{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--deep);border-bottom:1px solid currentColor;padding-bottom:2px}
+.lnk .ic{transition:transform .2s}.lnk:hover .ic{transform:translateX(4px)}
+.eyebrow{font:600 12px/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;color:var(--deep)}
+.tg{display:inline-block;font:600 11px/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;color:var(--deep)}
+.price{font:700 22px/1 var(--f-disp);letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.price small{font:600 13px var(--f-body);margin-right:2px;opacity:.7}
+.price.big{font-size:40px}
+.pix{font-size:13px;color:var(--soft)}
+.cats{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.cat{display:flex;align-items:center;gap:14px;padding:20px;border:1px solid var(--line);border-radius:var(--r-card);background:var(--surface);transition:transform .25s,box-shadow .25s,border-color .25s}
+.cat:hover{transform:translateY(-3px);box-shadow:var(--sh-md);border-color:var(--mint)}
+.ci{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--tint);color:var(--deep);flex:none;transition:background .25s}
+.cat:hover .ci{background:var(--mint)}
+.cn{font-weight:600}
+.go{margin-left:auto;color:var(--soft);transition:transform .25s,color .25s}
+.cat:hover .go{transform:translateX(4px);color:var(--ink)}
+.prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:clamp(16px,2.4vw,28px)}
+.prod{display:grid;gap:14px;align-content:start}
+.pc{display:block;padding:14%;border-radius:var(--r-card);background:var(--stage);transition:background .3s}
+.pc .cover{transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.prod:hover .pc .cover{transform:translateY(-6px) rotate(-1.5deg);box-shadow:var(--cov-sh-hover)}
+.pb{display:grid;gap:8px}
+.pb h3{font:600 16px/1.3 var(--f-body);letter-spacing:0}
+.pr{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.feat{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:20px}
+.fmain{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1fr);gap:clamp(20px,3vw,44px);align-items:center;padding:clamp(20px,3vw,40px);border-radius:var(--r-big);background:var(--feat-bg);border:1px solid var(--feat-line);min-width:0}
+.fcov{padding:6%}
+.fcov .cover{transform:rotate(-2deg);box-shadow:var(--cov-sh-hover)}
+.fmain:hover .fcov .cover{transform:rotate(0) translateY(-4px)}
+.ftxt{display:grid;gap:14px;min-width:0}
+.ftxt h3{font-size:clamp(24px,3vw,34px);line-height:1.1;letter-spacing:-.02em;font-weight:var(--h2w,700)}
+.ftxt p{color:var(--soft);max-width:44ch}
+.fl{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.fl li{display:flex;align-items:center;gap:10px;font-weight:500}
+.fl .ic{color:var(--deep)}
+.fside{display:grid;gap:20px;align-content:stretch}
+.fs{display:grid;grid-template-columns:96px minmax(0,1fr);gap:16px;align-items:center;padding:18px;border-radius:var(--r-card);border:1px solid var(--line);background:var(--surface);transition:transform .25s,box-shadow .25s}
+.fs:hover{transform:translateY(-3px);box-shadow:var(--sh-md)}
+.fs > span:last-child{display:grid;gap:8px}
+.fs b{font:600 15px/1.3 var(--f-body)}
+.bens{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:clamp(20px,3vw,40px)}
+.ben{display:grid;gap:10px;align-content:start}
+.bi{width:52px;height:52px;border-radius:16px;display:grid;place-items:center;background:var(--tint);color:var(--deep);margin-bottom:6px}
+.ben h3{font:600 18px/1.2 var(--f-body)}
+.ben p{color:var(--soft);font-size:15px}
+.foot{margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px));background:var(--foot-bg);color:var(--foot-ink);padding-block:56px 40px}
+.foot .in{display:grid;grid-template-columns:minmax(0,1.6fr) repeat(3,minmax(0,1fr));gap:32px}
+.foot .fb{display:grid;gap:14px;align-content:start}
+.foot .fb p{color:var(--foot-soft);max-width:30ch}
+.foot .fc{display:grid;gap:10px;align-content:start;font-size:15px}
+.foot .fc b{font:600 12px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--foot-soft);margin-bottom:4px}
+.foot .fc a{color:var(--foot-ink);opacity:.9}.foot .fc a:hover{text-decoration:underline}
+.foot .legal{grid-column:1/-1;border-top:1px solid var(--foot-line);padding-top:20px;font-size:13px;color:var(--foot-soft);max-width:none}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+.rise{animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.24s}
+@media (max-width:1000px){.feat{grid-template-columns:1fr}.fside{grid-template-columns:repeat(2,minmax(0,1fr))}.nav{display:none}.menu{display:block}.search{width:auto;flex:1;margin-left:0}}
+@media (max-width:760px){.fmain{grid-template-columns:1fr}.fcov{max-width:260px;margin-inline:auto}.fside{grid-template-columns:1fr}.foot .in{grid-template-columns:1fr 1fr}.foot .fb{grid-column:1/-1}.top .in{gap:12px}.logo .nm{font-size:16px}}
+@media (max-width:420px){.logo .nm{display:none}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+
+
+.cover{position:relative;aspect-ratio:3/4;width:100%;background:var(--a);color:var(--c);border-radius:var(--cov-r,6px);padding:9% 9% 8%;display:flex;flex-direction:column;overflow:hidden;container-type:inline-size;box-shadow:var(--cov-sh);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s}
+.cover::before{content:"";position:absolute;inset:0 auto 0 0;width:5%;background:linear-gradient(90deg,rgba(0,0,0,.18),rgba(255,255,255,.12) 60%,transparent);z-index:2}
+.cover .k{font:600 clamp(8px,4.2cqi,11px)/1 var(--f-body);letter-spacing:.14em;text-transform:uppercase;opacity:.8;position:relative;z-index:1}
+.cover .art{position:absolute;inset:18% 0 30% 0;z-index:0}
+.cover strong{margin-top:auto;font:var(--cov-w,700) clamp(15px,11cqi,30px)/1.02 var(--f-cov,var(--f-disp));letter-spacing:-.01em;position:relative;z-index:1;text-wrap:balance}
+.cover em{font:normal 500 clamp(9px,4.6cqi,13px)/1.25 var(--f-body);margin-top:5px;opacity:.85;position:relative;z-index:1}
+.cover .pub{font:600 clamp(7px,3.4cqi,10px)/1 var(--f-body);letter-spacing:.1em;text-transform:uppercase;margin-top:10px;opacity:.6;position:relative;z-index:1}
+.cover[data-shape=circle] .art{background:radial-gradient(circle at 68% 48%,var(--b) 0 34%,transparent 35%),radial-gradient(circle at 24% 80%,color-mix(in srgb,var(--b) 55%,transparent) 0 14%,transparent 15%)}
+.cover[data-shape=stripes] .art{background:repeating-linear-gradient(100deg,var(--b) 0 7%,transparent 7% 14%);opacity:.9;clip-path:circle(52% at 62% 46%)}
+.cover[data-shape=half] .art{background:linear-gradient(135deg,var(--b) 0 50%,transparent 50%);clip-path:circle(48% at 55% 50%)}
+.cover[data-shape=dots] .art{background:radial-gradient(var(--b) 0 22%,transparent 24%) 0 0/16% 12%;clip-path:circle(52% at 60% 48%)}
+.cover[data-shape=arc] .art{background:radial-gradient(circle at 50% 100%,transparent 0 30%,var(--b) 31% 48%,transparent 49%),radial-gradient(circle at 50% 100%,transparent 0 56%,color-mix(in srgb,var(--b) 50%,transparent) 57% 70%,transparent 71%)}
+
+
+.top{backdrop-filter:blur(12px)}
+.hero{padding-block:clamp(40px,7vw,96px) clamp(24px,4vw,56px);background:radial-gradient(60% 80% at 85% 20%,rgba(130,216,208,.28),transparent 70%)}
+.hero .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(24px,5vw,72px);align-items:center}
+.ht{display:grid;gap:22px;justify-items:start}
+.hero h1{font-size:clamp(38px,6.4vw,72px);line-height:1.02;letter-spacing:-.035em;font-weight:600;max-width:12ch}
+.hero p{font-size:clamp(17px,2vw,20px);color:var(--soft);max-width:36ch}
+.hb{display:flex;flex-wrap:wrap;gap:12px}
+.hv{position:relative;height:clamp(300px,42vw,500px);display:grid;place-items:center}
+.blob{position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:var(--mint);opacity:.5;filter:blur(2px)}
+.f{position:absolute;width:30%;min-width:96px}
+.f1{left:4%;top:14%;transform:rotate(-9deg);animation:rise .8s .1s both}
+.f2{left:50%;top:50%;width:38%;transform:translate(-50%,-50%);z-index:2;animation:rise .8s .25s both}
+.f3{right:0;top:12%;transform:rotate(8deg);animation:rise .8s .4s both}
+.f .cover{box-shadow:0 30px 40px -18px rgba(16,40,36,.55)}
+.hv:hover .f1{transform:rotate(-13deg) translateX(-8px)}.hv:hover .f3{transform:rotate(12deg) translateX(8px)}
+.f{transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+@media (max-width:860px){.hero .in{grid-template-columns:1fr}.hero h1{max-width:14ch}}
+
+</style>
+<a id="topo"></a>
+
+<header class="top"><div class="in">
+  <a class="logo" href="#topo"><span class="mk"></span><span class="nm">Meu Ebook Digital</span></a>
+  <nav class="nav" aria-label="Principal"><a href="#">Novidades</a><a href="#">Categorias</a><a href="#">Mais vendidos</a><a href="#">Suporte</a></nav>
+  <label class="search"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg><input type="search" placeholder="Buscar e-books" aria-label="Buscar e-books"></label>
+  <a class="cart" href="#" aria-label="Carrinho"><svg class="ic" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 4h2.5l2 11h10l2-8H7"/><circle cx="9" cy="19.5" r="1.2"/><circle cx="17" cy="19.5" r="1.2"/></svg></a>
+  <details class="menu"><summary aria-label="Abrir menu"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h10"/></svg></summary><div class="sheet"><a href="#">Novidades</a><a href="#">Categorias</a><a href="#">Mais vendidos</a><a href="#">Suporte</a></div></details>
+</div></header>
+<main>
+
+<section class="hero"><div class="in">
+  <div class="ht">
+    <span class="eyebrow rise">Novos títulos toda semana</span>
+    <h1 class="rise d1">Livros digitais para ler, imprimir e guardar.</h1>
+    <p class="rise d2">E-books e livros de atividades em PDF, com entrega na hora e compra única.</p>
+    <div class="hb rise d3"><a class="btn" href="#">Explorar a vitrine <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a><a class="btn alt" href="#">Ver lançamentos</a></div>
+  </div>
+  <div class="hv" aria-hidden="false"><span class="blob"></span>
+    <div class="f f1"><div class="cover " data-shape="dots" style="--a:#dfe6ff;--b:#6d83ff;--c:#16204f" role="img" aria-label="Capa de Primeiras Letras"><span class="k">Educação</span><span class="art"></span><strong>Primeiras Letras</strong><em>Alfabetização em atividades</em><span class="pub">Meu Ebook Digital</span></div></div><div class="f f2"><div class="cover big" data-shape="circle" style="--a:#fff1c9;--b:#82d8d0;--c:#1b2b28" role="img" aria-label="Capa de Animais Fofinhos, Meu Primeiro Livro de Pintura"><span class="k">Infantil</span><span class="art"></span><strong>Animais Fofinhos</strong><em>Meu primeiro livro de pintura</em><span class="pub">Meu Ebook Digital</span></div></div><div class="f f3"><div class="cover " data-shape="stripes" style="--a:#1f4d46;--b:#82d8d0;--c:#f3fbf9" role="img" aria-label="Capa de Rotina Leve, Planner para a Família"><span class="k">Casa e rotina</span><span class="art"></span><strong>Rotina Leve</strong><em>Planner para a família</em><span class="pub">Meu Ebook Digital</span></div></div>
+  </div>
+</div></section>
+
+<section class="sec" style="padding-block-start:clamp(56px,8vw,104px)"><div class="in"><div class="sh"><div><span class="eyebrow">Categorias</span><h2>Escolha pelo que importa em casa</h2></div><a class="lnk" href="#">Ver tudo <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="cats"><a class="cat" href="#"><span class="ci"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20l1-4L16 5a2 2 0 0 1 3 3L8 19z"/><path d="M14 7l3 3"/></svg></span><span class="cn">Infantil e pintura</span><span class="go"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="cat" href="#"><span class="ci"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4z"/><path d="M7 11v4c0 1.5 10 1.5 10 0v-4"/></svg></span><span class="cn">Educação</span><span class="go"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="cat" href="#"><span class="ci"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 11l8-7 8 7"/><path d="M6 10v9h12v-9"/></svg></span><span class="cn">Casa e rotina</span><span class="go"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="cat" href="#"><span class="ci"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 4v7M5 4v4a2 2 0 0 0 4 0V4M7 11v9"/><path d="M16 20V4c-2 1-3 4-3 7h3"/></svg></span><span class="cn">Receitas</span><span class="go"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="cat" href="#"><span class="ci"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7v10M9.5 9.5c0-1 1-1.5 2.5-1.5s2.5.6 2.5 1.6-1 1.4-2.5 1.8-2.5.8-2.5 1.8 1 1.6 2.5 1.6 2.5-.5 2.5-1.5"/></svg></span><span class="cn">Finanças</span><span class="go"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a><a class="cat" href="#"><span class="ci"><svg class="ic" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg></span><span class="cn">Maternidade</span><span class="go"><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a></div></div></section>
+<section class="sec shelf"><div class="in"><div class="sh"><div><span class="eyebrow">Vitrine</span><h2>Os queridinhos da loja</h2><p>Capas de verdade, PDF em alta resolução e preço claro.</p></div><a class="lnk" href="#">Ver todos os e-books <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div><div class="prods"><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="circle" style="--a:#fff1c9;--b:#82d8d0;--c:#1b2b28" role="img" aria-label="Capa de Animais Fofinhos, Meu Primeiro Livro de Pintura"><span class="k">Infantil</span><span class="art"></span><strong>Animais Fofinhos</strong><em>Meu primeiro livro de pintura</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Infantil</span><h3>Animais Fofinhos, Meu Primeiro Livro de Pintura</h3><div class="pr"><span class="price"><small>R$</small> 9,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="stripes" style="--a:#1f4d46;--b:#82d8d0;--c:#f3fbf9" role="img" aria-label="Capa de Rotina Leve, Planner para a Família"><span class="k">Casa e rotina</span><span class="art"></span><strong>Rotina Leve</strong><em>Planner para a família</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Casa e rotina</span><h3>Rotina Leve, Planner para a Família</h3><div class="pr"><span class="price"><small>R$</small> 19,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="half" style="--a:#ffd9c7;--b:#ff8f6b;--c:#3a1d12" role="img" aria-label="Capa de Cardápio da Semana"><span class="k">Receitas</span><span class="art"></span><strong>Cardápio da Semana</strong><em>Receitas e lista de compras</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Receitas</span><h3>Cardápio da Semana</h3><div class="pr"><span class="price"><small>R$</small> 14,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="dots" style="--a:#dfe6ff;--b:#6d83ff;--c:#16204f" role="img" aria-label="Capa de Primeiras Letras"><span class="k">Educação</span><span class="art"></span><strong>Primeiras Letras</strong><em>Alfabetização em atividades</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Educação</span><h3>Primeiras Letras</h3><div class="pr"><span class="price"><small>R$</small> 12,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="arc" style="--a:#e8f5d8;--b:#86b84a;--c:#1d3010" role="img" aria-label="Capa de Orçamento em Casal"><span class="k">Finanças</span><span class="art"></span><strong>Orçamento em Casal</strong><em>Finanças a dois, passo a passo</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Finanças</span><h3>Orçamento em Casal</h3><div class="pr"><span class="price"><small>R$</small> 24,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="circle" style="--a:#2a2f57;--b:#b9c2ff;--c:#f2f3ff" role="img" aria-label="Capa de Sono do Bebê"><span class="k">Maternidade</span><span class="art"></span><strong>Sono do Bebê</strong><em>Rotinas para noites tranquilas</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Maternidade</span><h3>Sono do Bebê</h3><div class="pr"><span class="price"><small>R$</small> 17,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="dots" style="--a:#ffe0ea;--b:#ff7fa6;--c:#4a1126" role="img" aria-label="Capa de Contos de Bolso"><span class="k">Infantil</span><span class="art"></span><strong>Contos de Bolso</strong><em>Histórias curtas para dormir</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Infantil</span><h3>Contos de Bolso</h3><div class="pr"><span class="price"><small>R$</small> 9,90</span><a class="btn sm" href="#">Comprar</a></div></div></article><article class="prod"><a class="pc" href="#"><div class="cover " data-shape="half" style="--a:#cdeee9;--b:#0f6f65;--c:#0b2a26" role="img" aria-label="Capa de Mãos à Horta"><span class="k">Educação</span><span class="art"></span><strong>Mãos à Horta</strong><em>Horta em casa para crianças</em><span class="pub">Meu Ebook Digital</span></div></a><div class="pb"><span class="tg">Educação</span><h3>Mãos à Horta</h3><div class="pr"><span class="price"><small>R$</small> 12,90</span><a class="btn sm" href="#">Comprar</a></div></div></article></div></div></section>
+<section class="sec featwrap"><div class="in"><div class="sh"><div><span class="eyebrow">Em destaque</span><h2>O livro da semana</h2></div></div>
+<div class="feat">
+  <div class="fmain">
+    <div class="fcov"><div class="cover big" data-shape="circle" style="--a:#fff1c9;--b:#82d8d0;--c:#1b2b28" role="img" aria-label="Capa de Animais Fofinhos, Meu Primeiro Livro de Pintura"><span class="k">Infantil</span><span class="art"></span><strong>Animais Fofinhos</strong><em>Meu primeiro livro de pintura</em><span class="pub">Meu Ebook Digital</span></div></div>
+    <div class="ftxt">
+      <span class="tg">Destaque da semana</span>
+      <h3>Animais Fofinhos, Meu Primeiro Livro de Pintura</h3>
+      <p>20 desenhos originais e 5 atividades bônus, para crianças de 3 a 5 anos. PDF pronto para imprimir em A4.</p>
+      <ul class="fl"><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>20 desenhos para pintar</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>5 atividades bônus</li><li><svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Entrega imediata por e-mail</li></ul>
+      <div class="pr"><span class="price big"><small>R$</small> 9,90</span><a class="btn" href="#">Comprar agora <svg class="ic" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+      <span class="pix">À vista no Pix</span>
+    </div>
+  </div>
+  <div class="fside"><a class="fs" href="#"><div class="cover mini" data-shape="stripes" style="--a:#1f4d46;--b:#82d8d0;--c:#f3fbf9" role="img" aria-label="Capa de Rotina Leve, Planner para a Família"><span class="k">Casa e rotina</span><span class="art"></span><strong>Rotina Leve</strong><em>Planner para a família</em><span class="pub">Meu Ebook Digital</span></div><span><span class="tg">Casa e rotina</span><b>Rotina Leve, Planner para a Família</b><span class="price"><small>R$</small> 19,90</span></span></a><a class="fs" href="#"><div class="cover mini" data-shape="half" style="--a:#ffd9c7;--b:#ff8f6b;--c:#3a1d12" role="img" aria-label="Capa de Cardápio da Semana"><span class="k">Receitas</span><span class="art"></span><strong>Cardápio da Semana</strong><em>Receitas e lista de compras</em><span class="pub">Meu Ebook Digital</span></div><span><span class="tg">Receitas</span><b>Cardápio da Semana</b><span class="price"><small>R$</small> 14,90</span></span></a></div>
+</div></div></section>
+<section class="sec benwrap"><div class="in"><div class="sh"><div><span class="eyebrow">Por que comprar aqui</span><h2>Simples de comprar, fácil de usar</h2></div></div><div class="bens"><div class="ben"><span class="bi"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg></span><h3>Entrega na hora</h3><p>O link do PDF chega assim que o pagamento é confirmado.</p></div><div class="ben"><span class="bi"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span><h3>Pagamento seguro</h3><p>Pix e cartão, com confirmação automática.</p></div><div class="ben"><span class="bi"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 11l5 5 5-5M5 20h14"/></svg></span><h3>Seu para sempre</h3><p>Compra única. Baixe e imprima quantas vezes quiser.</p></div><div class="ben"><span class="bi"><svg class="ic" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/></svg></span><h3>Suporte de verdade</h3><p>Fale com uma pessoa se algo não chegar.</p></div></div></div></section>
+
+<footer class="foot"><div class="in">
+  <div class="fb"><a class="logo" href="#topo"><span class="mk"></span><span class="nm">Meu Ebook Digital</span></a><p>Livros digitais para ler, imprimir e guardar.</p></div>
+  <div class="fc"><b>Loja</b><a href="#">Novidades</a><a href="#">Mais vendidos</a><a href="#">Categorias</a></div>
+  <div class="fc"><b>Ajuda</b><a href="#">Suporte</a><a href="#">Como receber o PDF</a><a href="#">Trocas e reembolso</a></div>
+  <div class="fc"><b>Legal</b><a href="#">Termos de uso</a><a href="#">Privacidade</a></div>
+  <p class="legal">Vitrine de exemplo. Os títulos além de Animais Fofinhos e os preços são ilustrativos.</p>
+</div></footer>
+</main>

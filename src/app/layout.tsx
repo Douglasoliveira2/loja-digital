@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Loja de produtos digitais", template: "%s | Loja de produtos digitais" },
+  title: { default: "Meu Ebook Digital", template: "%s | Meu Ebook Digital" },
   description: "Livros de pintura e materiais digitais para imprimir.",
 };
 

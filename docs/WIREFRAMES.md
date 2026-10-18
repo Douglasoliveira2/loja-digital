@@ -1,4 +1,4 @@
-# Wireframes da loja
+# Meu Ebook Digital: wireframes da loja
 
 Este documento mostra, tela por tela, quais blocos serão construídos e com qual intenção. Não há decisão visual aqui: nada de cor, fonte ou estilo. Isso vem na etapa seguinte, depois que você aprovar a estrutura.
 
