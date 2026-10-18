@@ -1,8 +1,17 @@
+import { Benefits } from "@/components/home/Benefits";
+import { Categories } from "@/components/home/Categories";
+import { Featured } from "@/components/home/Featured";
+import { Hero } from "@/components/home/Hero";
+import { Shelf } from "@/components/home/Shelf";
+
 export default function Home() {
   return (
-    <main className="mx-auto max-w-3xl px-4 py-16">
-      <h1 className="text-3xl font-semibold">Meu Ebook Digital</h1>
-      <p className="mt-3 text-lg">O catálogo será exibido aqui a partir da Fase 4.</p>
-    </main>
+    <>
+      <Hero />
+      <Categories />
+      <Shelf />
+      <Featured />
+      <Benefits />
+    </>
   );
 }
