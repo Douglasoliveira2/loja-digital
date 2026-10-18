@@ -8,7 +8,7 @@
 :root{color-scheme:light;
 --bg:#ffffff;--surface:#ffffff;--field:#f4f6f3;--tint:#e6f4f1;--stage:#f2f5f1;--ink:#0d2f2a;--soft:#4d6560;--line:#dce4e0;--line-strong:#b7c6c1;
 --mint:#82d8d0;--deep:#0d5a51;--cta:#0d2f2a;--cta-ink:#ffffff;--head-bg:rgba(255,255,255,.94);
---f-disp:var(--font-fraunces),Georgia,serif;--f-body:var(--font-instrument),system-ui,sans-serif;--f-cov:var(--font-fraunces),Georgia,serif;
+--f-disp:var(--font-fraunces,Georgia),Georgia,serif;--f-body:var(--font-instrument,system-ui),system-ui,sans-serif;--f-cov:var(--font-fraunces,Georgia),Georgia,serif;
 --r-btn:4px;--r-pill:4px;--r-card:6px;--r-big:6px;--mk-r:3px;--h2w:500;--cov-r:3px;--cov-w:600;
 --sh-md:0 12px 24px -14px rgba(13,47,42,.3);--sh-lg:0 20px 40px -16px rgba(13,47,42,.3);--sh-btn:6px 6px 0 var(--mint);
 --cov-sh:0 22px 28px -16px rgba(13,47,42,.45),0 1px 3px rgba(13,47,42,.15);--cov-sh-hover:0 30px 38px -16px rgba(13,47,42,.5),0 1px 3px rgba(13,47,42,.18);
@@ -179,3 +179,36 @@ a{color:inherit;text-decoration:none}
 .empty-page{display:grid;gap:16px;justify-items:start;max-width:560px;min-height:40vh;align-content:center}
 .empty-page h1{font-size:clamp(32px,5vw,52px);line-height:1.04;letter-spacing:-.02em;font-weight:500}
 .empty-page p{color:var(--soft)}
+
+/* ---------- catálogo, produto e compra direta ---------- */
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.page-title{font-size:clamp(34px,5.4vw,60px);line-height:1.02;letter-spacing:-.03em;font-weight:500}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:clamp(24px,3vw,40px)}
+.chip{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 16px;border:1px solid var(--line-strong);border-radius:var(--r-btn);background:transparent;color:var(--ink);font:500 14px/1 var(--f-body);cursor:pointer;transition:background .2s,border-color .2s,transform .2s}
+.chip:hover{background:var(--tint);border-color:var(--deep);transform:translateY(-1px)}
+.chip.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pd{padding-block-start:clamp(32px,5vw,64px)}
+.pd-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:clamp(24px,5vw,72px);align-items:center}
+.pd-stage{background:var(--mint);border-radius:var(--r-big);padding:clamp(24px,6vw,64px);display:grid;place-items:center}
+.pd-cover{width:min(300px,100%);transform:rotate(-2deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.pd-stage:hover .pd-cover{transform:rotate(0) translateY(-6px)}
+.pd-info{display:grid;gap:18px;justify-items:start;min-width:0}
+.pd-info h1{font-size:clamp(30px,4.4vw,52px);line-height:1.04;letter-spacing:-.025em;font-weight:500}
+.pd-sum{color:var(--soft);max-width:48ch}
+.crumbs{display:flex;gap:8px;align-items:center;font-size:13px;color:var(--soft)}
+.crumbs a:hover{color:var(--ink);text-decoration:underline}
+.pd-buy{display:grid;gap:10px;justify-items:start;padding-block:8px}
+.share{display:grid;gap:10px;padding-top:18px;border-top:1px solid var(--line);width:100%}
+.share-title{font:600 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+.share-row{display:flex;flex-wrap:wrap;gap:8px}
+.buy{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:clamp(24px,5vw,64px);align-items:start;max-width:880px}
+.buy-info{display:grid;gap:16px;justify-items:start;min-width:0}
+.buy-info h1{font-size:clamp(28px,4vw,44px);line-height:1.05;letter-spacing:-.025em;font-weight:500}
+.buy-lines{margin:0;width:100%;max-width:420px;border-top:1px solid var(--ink)}
+.buy-lines div{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.buy-lines dt{color:var(--soft)}
+.buy-lines dd{margin:0;font:500 20px var(--f-disp)}
+.buy-lines .total dt{color:var(--ink);font-weight:600}
+.btn[disabled]{opacity:.55;cursor:not-allowed;transform:none;box-shadow:none}
+.prod .pb h3 a:hover{text-decoration:underline}
+@media (max-width:860px){.pd-grid{grid-template-columns:1fr}.buy{grid-template-columns:1fr}.buy-cover{max-width:200px}}
